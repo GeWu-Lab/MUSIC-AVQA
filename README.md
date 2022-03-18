@@ -29,7 +29,7 @@ We focus on **audio-visual question answering (AVQA) task, which aims to answer 
 
 The large-scale MUSIC-AVQA dataset of musical performance, which contains **45,867 question-answer pairs**, distributed in **9,290 videos** for over 150 hours. All QA pairs types are divided into **3 modal scenarios**, which contain **9 question types** and **33 question templates**. Finally, as an open-ended problem of our AVQA tasks, all 42 kinds of answers constitute a set for selection. 
 
-- QA examples
+- **QA examples**
 
   <div  align="center">    
   <img src="figs/st_avqa_pairs.png" width = "100%" />
@@ -42,7 +42,7 @@ The large-scale MUSIC-AVQA dataset of musical performance, which contains **45,8
 To solve the AVQA problem, we propose a spatio-temporal grounding model to achieve scene understanding and reasoning over audio and visual modalities. An overview of the proposed framework is illustrated in below  figure.
 
 <div  align="center">    
-<img src="figs/framework.png" width = "100%" />
+<img src="figs/framework.png" width = "90%" />
 </div>
 
 
