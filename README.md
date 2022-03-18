@@ -183,10 +183,11 @@ numpy
    ```python
    python grounding_gen/main_grd_gen_vis.py
    ```
+   
+   <div  align="center">    
+   <img src="figs/visualize.png" width = "100%" />
+   </div>
 
-<div  align="center">    
-<img src="figs/visualize.png" width = "94%" />
-</div>
 
 
 
