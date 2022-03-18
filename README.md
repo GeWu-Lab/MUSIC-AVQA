@@ -8,9 +8,9 @@ PyTorch code accompanies our CVPR 2022 paper:
 
 [Guangyao Li](https://ayameyao.github.io/), [Yake Wei](https://echo0409.github.io/), [Yapeng Tian](https://yapengtian.org/), [Chenliang Xu](https://www.cs.rochester.edu/~cxu22/), [Ji-Rong Wen](http://ai.ruc.edu.cn/szdw/68136712b556477db57c8ae66752768f.htm) and [Di Hu](https://dtaoo.github.io/index.html)
 
-**Resources:**  [[Paper]](https://ayameyao.github.io/Music-AVQA/static/files/Music-AVQA.pdf), [[Supplementary]](https://ayameyao.github.io/Music-AVQA/static/files/Music-AVQA-supplementary.pdf),  [[Poster]](https://ayameyao.github.io/Music-AVQA/static/files/Music-AVQA-poster.pdf), [[Video]](https://www.bilibili.com/video/BV1Br4y1q7YN/) 
+**Resources:**  [[Paper]](https://gewu-lab.github.io/MUSIC-AVQA/static/files/MUSIC-AVQA.pdf), [[Supplementary]](https://gewu-lab.github.io/MUSIC-AVQA/static/files/MUSIC-AVQA-supplementary.pdf),  [[Poster]](https://gewu-lab.github.io/MUSIC-AVQA/static/files/MUSIC-AVQA-poster.pdf), [[Video]](https://www.bilibili.com/video/BV1Br4y1q7YN/) 
 
-**Project Homepage:** https://ayameyao.github.io/Music-AVQA/
+**Project Homepage:**  [https://https://gewu-lab.github.io/MUSIC-AVQA/](https://gewu-lab.github.io/MUSIC-AVQA/)
 
 ---
 
@@ -25,9 +25,9 @@ We focus on **audio-visual question answering (AVQA) task, which aims to answer 
 </div>
 
 
-## Music-AVQA Dataset
+## MUSIC-AVQA Dataset
 
-The large-scale Music-AVQA dataset of musical performance, which contains **45,867 question-answer pairs**, distributed in **9,290 videos** for over 150 hours. All QA pairs types are divided into **3 modal scenarios**, which contain **9 question types** and **33 question templates**. Finally, as an open-ended problem of our AVQA tasks, all 42 kinds of answers constitute a set for selection. 
+The large-scale MUSIC-AVQA dataset of musical performance, which contains **45,867 question-answer pairs**, distributed in **9,290 videos** for over 150 hours. All QA pairs types are divided into **3 modal scenarios**, which contain **9 question types** and **33 question templates**. Finally, as an open-ended problem of our AVQA tasks, all 42 kinds of answers constitute a set for selection. 
 
 - QA examples
 
@@ -71,13 +71,13 @@ numpy
    **Annotations (QA pairs, etc.)**
 
    - Available for download at [Google Drive (20MB zipped)](http://www.google.com/), [Baidu Drive (20MB zipped)](https://www.baidu.com/)
-   - The annotation files are stored in JSON format. Each annotation file contains seven different keyword. And more detail see in [Project Homepage](https://ayameyao.github.io/Music-AVQA/)
+   - The annotation files are stored in JSON format. Each annotation file contains seven different keyword. And more detail see in [Project Homepage](https://ayameyao.github.io/MUSIC-AVQA/)
 
    **Features**
 
    - We use [VGGish](https://github.com/tensorflow/models/tree/master/research/audioset/vggish), [ResNet18](https://pytorch.org/docs/stable/torchvision/models.html), and [ResNet (2+1)D](https://pytorch.org/docs/stable/torchvision/models.html) to extract audio, 2D frame-level, and 3D snippet-level features, respectively. 
 
-   - The audio and visual features of videos in the Music--AVQA dataset can be download from this [Google Drive]() or [Baidu Drive](). 
+   - The audio and visual features of videos in the MUSIC-AVQA dataset can be download from this [Google Drive]() or [Baidu Drive](). 
 
    - The features are in the "./feats" folder.
    - 14x14 features, too large to share ... but we can extract from raw videos.
@@ -86,20 +86,20 @@ numpy
 
    - Raw videos (trimmed): Available at [Google Drive (50GB zipped)](http://www.google.com/) or [Baidu Drive (50GB zipped)](https://www.baidu.com/).
 
-   - Download raw videos in the Music--AVQA dataset. The downloaded videos will be in the data/Music--AVQA_dataset/video folder. 
+   - Download raw videos in the MUSIC-AVQA dataset. The downloaded videos will be in the data/MUSIC-AVQA_dataset/video folder. 
 
    - Pandas and ffmpeg libraries are required.
 
 
 3. **Data pre-processing**
 
-   Extract audio waveforms from videos. The extracted audios will be in the data/Music--AVQA_dataset/audio folder. `moviepy library` is used to read videos and extract audios.
+   Extract audio waveforms from videos. The extracted audios will be in the data/MUSIC-AVQA_dataset/audio folder. `moviepy library` is used to read videos and extract audios.
 
    ```python
    python feat_script/extract_audio_cues/extract_audio.py	
    ```
 
-   Extract video frames from videos. The extracted frames will be in the data/Music--AVQA_dataset/frames folder.
+   Extract video frames from videos. The extracted frames will be in the data/MUSIC-AVQA_dataset/frames folder.
 
    ```python
    python feat_script/extract_visual_frames/extract_frames_adaptive_script.py
@@ -169,7 +169,7 @@ numpy
 
 ## Results
 
-1. **Audio-visual video question answering results** of different methods on the test set of Music--AVQA. The top-2 results are highlighted. Please see the citations in the [[Paper]](https://ayameyao.github.io/Music--AVQA/static/files/Music--AVQA.pdf) for comparison methods.
+1. **Audio-visual video question answering results** of different methods on the test set of MUSIC-AVQA. The top-2 results are highlighted. Please see the citations in the [[Paper]](https://ayameyao.github.io/MUSIC-AVQA/static/files/MUSIC-AVQA.pdf) for comparison methods.
 
    <div  align="center">    
    <img src="figs/exp1.png" width = "100%" />
