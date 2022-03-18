@@ -63,7 +63,7 @@ numpy
 1. **Clone this repo**
 
    ```python
-   https://github.com/ayameyao/RUC_AVQA.git
+   https://github.com/ayameyao/MUSIC-AVQA.git
    ```
 
 2. **Download data**
