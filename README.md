@@ -53,6 +53,7 @@ To solve the AVQA problem, we propose a spatio-temporal grounding model to achie
 python3.6 +
 pytorch1.6.0
 tensorboardX
+ffmpeg
 numpy
 ```
 
