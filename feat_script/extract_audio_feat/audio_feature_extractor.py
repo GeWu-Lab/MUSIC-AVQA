@@ -33,8 +33,8 @@ freq = 1000
 sr = 44100
 
 
-audio_dir = "../../data/AVQA/audio_wav/" # .wav audio files
-save_dir = "../../data/AVQA/feats/aud_vggish_feat/"
+audio_dir = "./data/audio/" # .wav audio files
+save_dir = "./data/feats/vggish/"
 
 
 lis = sorted(os.listdir(audio_dir))

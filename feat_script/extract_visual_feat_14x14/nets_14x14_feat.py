@@ -1,5 +1,5 @@
 import sys 
-sys.path.append("/home/guangyao_li/projects/avqa/avqa-code-cvpr2022-0919/grounding_locl") 
+sys.path.append("path to MUSIC-AVQA_CVPR2022") 
 import torch
 # import torchvision
 import torchvision.models as models

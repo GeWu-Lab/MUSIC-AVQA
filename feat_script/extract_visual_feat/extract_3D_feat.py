@@ -77,12 +77,12 @@ if __name__ == '__main__':
     parser.add_argument("--gpu", dest='gpu', type=str, default='1',
                         help='Set CUDA_VISIBLE_DEVICES environment variable, optional')
     parser.add_argument("--output_dir", dest='output_dir', type=str,
-                        default='/home/guangyao_li/dataset/LFAV_dataset/feat/visual-feat-r2plus1d', help='directory to store features')
+                        default='./data/feats/r2plus1d', help='directory to store features')
     parser.add_argument("--n_frame_steps", dest='n_frame_steps', type=int, default=80,
                         help='how many frames to sampler per video')
 
     parser.add_argument("--video_path", dest='video_path', type=str,
-                        default='/home/guangyao_li/dataset/LFAV_dataset/update/update_frames/', help='path to video dataset')
+                        default='./data/frames/', help='path to video dataset')
     parser.add_argument("--model", dest="model", type=str, default='r2plus1d_18',
                         help='the CNN model you want to use to extract_feats')
 

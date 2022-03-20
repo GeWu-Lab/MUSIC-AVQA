@@ -48,8 +48,8 @@ def pool_process(video_pth, save_pth, pool=None):
 
 if __name__ == "__main__":
 
-    video_pth =  "../../data/AVQA/videos/"
-    save_pth =  "../../data/AVQA/audio_wav/"
+    video_pth =  "./data/video/"
+    save_pth =  "./data/audio/"
 
     # multiprocessing
     cpu_count = multiprocessing.cpu_count()     # cpu nums, 获取CPU核数

@@ -18,8 +18,8 @@ def extract_frames(video, dst):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--out_dir', dest='out_dir', type=str, default='/home/share/GSAI-M3PL-Lab/LongFormAV/videos-v1')
-    parser.add_argument('--video_path', dest='video_path', type=str, default='/home/share/GSAI-M3PL-Lab/LongFormAV/videos-v1-frame-1fps')
+    parser.add_argument('--out_dir', dest='out_dir', type=str, default='./data/videos')
+    parser.add_argument('--video_path', dest='video_path', type=str, default='./data/frames')
     args = parser.parse_args()
 
     vid_list = os.listdir(args.video_path)

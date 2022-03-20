@@ -16,8 +16,8 @@ def get_audio_wav(name, save_pth, audio_name):
 
 if __name__ == "__main__":
 
-    video_pth =  "../../data/AVQA/videos/"
-    save_pth =  "../../data/AVQA/audio_wav/"
+    video_pth =  "./data/video/"
+    save_pth =  "./data/audio/"
 
     sound_list = os.listdir(video_pth)
     for audio_id in sound_list:

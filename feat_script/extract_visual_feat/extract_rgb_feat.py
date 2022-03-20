@@ -30,10 +30,6 @@ def extract_feats(params, model, load_image_fn):
         dst = video
         print("\n-->: ", video)
 
-        if video == 'yz02dWv_shs':
-            print(video, " is too large!")
-            continue
-
         outfile = os.path.join(dir_fc, video + '.npy')
         if os.path.exists(outfile):
             print(video, " is already processed!")
@@ -73,12 +69,12 @@ if __name__ == '__main__':
     parser.add_argument("--gpu", dest='gpu', type=str, default='0',
                         help='Set CUDA_VISIBLE_DEVICES environment variable, optional')
     parser.add_argument("--output_dir", dest='output_dir', type=str,
-                        default='/home/guangyao_li/dataset/LFAV_dataset/feat/visual-feat-res18', help='directory to store features')
+                        default='./data/feats/res18', help='directory to store features')
     parser.add_argument("--n_frame_steps", dest='n_frame_steps', type=int, default=80,
                         help='how many frames to sampler per video')
 
     parser.add_argument("--video_path", dest='video_path', type=str,
-                        default='/home/guangyao_li/dataset/LFAV_dataset/update/update_frames/', help='path to video dataset')
+                        default='./data/feats/frames/', help='path to video dataset')
     parser.add_argument("--model", dest="model", type=str, default='resnet18',
                         help='the CNN model you want to use to extract_feats')
 

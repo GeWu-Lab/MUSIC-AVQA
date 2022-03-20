@@ -8,8 +8,8 @@ from video2frames import video_processing
 
 if __name__ == "__main__":
 
-    dir_path = '../../data/AVQA/videos/'
-    dst_path = '../../data/AVQA/frames/'
+    dir_path = './data/videos/'
+    dst_path = './data/frames/'
 
     process_count = 0
     fix_second = 0
