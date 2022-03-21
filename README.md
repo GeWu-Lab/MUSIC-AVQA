@@ -137,13 +137,13 @@ numpy
    Training
 
    ```python
-   python net_baseline/main_qa_grd_baseline.py --mode train
+   python net_grd_baseline/main_qa_grd_baseline.py --mode train
    ```
 
    Testing
 
    ```python
-   python net_baseline/main_qa_grd_baseline.py --mode test
+   python net_grd_baseline/main_qa_grd_baseline.py --mode test
    ```
 
 6. **Our Audio-Visual Spatial-Temporal Model**
@@ -181,6 +181,8 @@ numpy
 
    We provide several visualized spatial grounding results. The heatmap indicates the location of sounding source. Through the spatial grounding results, the sounding objects are visually captured, which can facilitate the spatial reasoning.
 
+   Firstly,  `./grounding_gen/models_grd_vis/` should be created.
+   
    ```python
    python grounding_gen/main_grd_gen_vis.py
    ```
