@@ -64,7 +64,7 @@ numpy
 1. **Clone this repo**
 
    ```python
-   https://github.com/ayameyao/MUSIC-AVQA.git
+   https://github.com/GeWu-Lab/MUSIC-AVQA_CVPR2022.git
    ```
 
 2. **Download data**
