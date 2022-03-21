@@ -71,7 +71,7 @@ numpy
 
    **Annotations (QA pairs, etc.)**
 
-   - Available for download at [Google Drive (20MB zipped)](http://www.google.com/), [Baidu Drive (20MB zipped)](https://www.baidu.com/)
+   - Available for download at [here](https://github.com/GeWu-Lab/MUSIC-AVQA_CVPR2022/tree/main/data/json)
    - The annotation files are stored in JSON format. Each annotation file contains seven different keyword. And more detail see in [Project Homepage](https://ayameyao.github.io/MUSIC-AVQA/)
 
    **Features**
@@ -80,27 +80,27 @@ numpy
 
    - The audio and visual features of videos in the MUSIC-AVQA dataset can be download from this [Google Drive]() or [Baidu Drive](). 
 
-   - The features are in the "./feats" folder.
+   - The features are in the `./data/feats` folder.
    - 14x14 features, too large to share ... but we can extract from raw videos.
 
    **Download videos**
 
    - Raw videos (trimmed): Available at [Google Drive (50GB zipped)](http://www.google.com/) or [Baidu Drive (50GB zipped)](https://www.baidu.com/).
 
-   - Download raw videos in the MUSIC-AVQA dataset. The downloaded videos will be in the data/MUSIC-AVQA_dataset/video folder. 
+   - Download raw videos in the MUSIC-AVQA dataset. The downloaded videos will be in the `/data/video` folder. 
 
    - Pandas and ffmpeg libraries are required.
 
 
 3. **Data pre-processing**
 
-   Extract audio waveforms from videos. The extracted audios will be in the data/MUSIC-AVQA_dataset/audio folder. `moviepy library` is used to read videos and extract audios.
+   Extract audio waveforms from videos. The extracted audios will be in the `./data/audio` folder. `moviepy library` is used to read videos and extract audios.
 
    ```python
    python feat_script/extract_audio_cues/extract_audio.py	
    ```
 
-   Extract video frames from videos. The extracted frames will be in the data/MUSIC-AVQA_dataset/frames folder.
+   Extract video frames from videos. The extracted frames will be in the `data/frames` folder.
 
    ```python
    python feat_script/extract_visual_frames/extract_frames_adaptive_script.py
