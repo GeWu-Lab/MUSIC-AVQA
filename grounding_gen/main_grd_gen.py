@@ -21,8 +21,6 @@ from torch.utils.tensorboard import SummaryWriter
 writer = SummaryWriter('runs/grounding_gen/'+TIMESTAMP)
 
 
-
-
 print("\n ------------------- grounding_gen ---------------------\n")
 
 
@@ -45,11 +43,6 @@ def train(args, model, train_loader, optimizer, criterion, epoch):
 
         loss.backward()
         optimizer.step()
-
-        # for name, parameters in model.named_parameters():
-        #     if(name=='module.visual_net.layer1.0.conv1.weight'):
-        #         print(name, ':---------------\n\n', parameters[0][0])
-
 
         if batch_idx % args.log_interval == 0:
             print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
@@ -79,7 +72,7 @@ def test(model, val_loader):
     model.eval()
     total = 0
     correct = 0
-    samples = json.load(open('../dataset/avqa-test_real.json', 'r'))
+    samples = json.load(open('./data/json/avqa-test_real.json', 'r'))
     A_count = []
     A_cmp = []
     V_count = []
@@ -157,38 +150,20 @@ def test(model, val_loader):
 def main():
     # Training settings
     parser = argparse.ArgumentParser(description='PyTorch Implementation of Audio-Visual Question Answering')
-    
-
-    # ============================== slurm =====================================
-    # parser.add_argument(
-    #     "--audio_dir", type=str, default='/home/share/GSAI-M3PL-Lab/AVQA/avqa-features/feats/vggish', help="audio dir")
-    # parser.add_argument(
-    #     "--video_dir", type=str, default='/home/share/GSAI-M3PL-Lab/AVQA/avqa-frames-8fps',
-    #     help="video dir")
-    # parser.add_argument(
-    #     "--st_dir", type=str, default='/home/share/GSAI-M3PL-Lab/AVQA/avqa-features/feats/r2plus1d_18',
-    #     help="video dir")
-    # ============================== slurm =====================================
-
-
-    # ============================== 151 =====================================
-    parser.add_argument(
-        "--audio_dir", type=str, default='/home/guangyao_li/dataset/avqa-features/feats/vggish', help="audio dir")
-    parser.add_argument(
-        "--video_dir", type=str, default='/home/guangyao_li/dataset/avqa/avqa-frames-8fps',
-        help="video dir")
-    parser.add_argument(
-        "--st_dir", type=str, default='/home/guangyao_li/dataset/avqa-features/feats/r2plus1d_18',
-        help="video dir")
-    # ============================== 151 =====================================
-
 
     parser.add_argument(
-        "--label_train", type=str, default="../dataset/avqa-train_real.json", help="train csv file")
+        "--audio_dir", type=str, default='./data/feats/vggish', help="audio dir")
     parser.add_argument(
-        "--label_val", type=str, default="../dataset/avqa-val_real.json", help="val csv file")
+        "--video_dir", type=str, default='./data/frames', help="video dir")
     parser.add_argument(
-        "--label_test", type=str, default="../dataset/avqa-test_real.json", help="test csv file")
+        "--st_dir", type=str, default='./data/feats/r2plus1d_18', help="video dir")
+
+    parser.add_argument(
+        "--label_train", type=str, default="./data/json/avqa-train_real.json", help="train csv file")
+    parser.add_argument(
+        "--label_val", type=str, default="./data/json/avqa-val_real.json", help="val csv file")
+    parser.add_argument(
+        "--label_test", type=str, default="./data/json/avqa-test_real.json", help="test csv file")
     parser.add_argument(
         '--batch-size', type=int, default=64, metavar='N', help='input batch size for training (default: 64)')
     parser.add_argument(

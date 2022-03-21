@@ -1,5 +1,4 @@
 import torch
-# import torchvision
 import torchvision.models as models
 import torch.nn as nn
 import torch.nn.functional as F
@@ -15,11 +14,9 @@ def batch_organize(audio_data, posi_img_data, nega_img_data):
     audio_data_batch=audio_data.view(B*T,C)
     batch_audio_data = torch.zeros(audio_data_batch.shape[0] * 2, audio_data_batch.shape[1])
 
-
     (B, T, C, H, W) = posi_img_data.size()
     posi_img_data_batch=posi_img_data.view(B*T,C,H,W)
     nega_img_data_batch=nega_img_data.view(B*T,C,H,W)
-
 
     batch_image_data = torch.zeros(posi_img_data_batch.shape[0] * 2, posi_img_data_batch.shape[1], posi_img_data_batch.shape[2],posi_img_data_batch.shape[3])
     batch_labels = torch.zeros(audio_data_batch.shape[0] * 2)
@@ -65,14 +62,11 @@ class AVQA_Fusion_Net(nn.Module):
     def __init__(self):
         super(AVQA_Fusion_Net, self).__init__()
 
-
-
         # for features
         self.fc_a1 =  nn.Linear(128, 512)
         self.fc_a2=nn.Linear(512,512)
 
         self.visual_net = resnet18(pretrained=True)
-
 
         self.fc_v = nn.Linear(2048, 512)
         self.fc_st = nn.Linear(512, 512)

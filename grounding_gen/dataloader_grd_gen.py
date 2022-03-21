@@ -41,13 +41,14 @@ def load_frame_info(img_path, img_file):
 
 def image_info(video_name, frame_flag):
 
-    path = "/home/guangyao_li/dataset/avqa/avqa-frames-8fps"
+    # path = "./data/frames-8fps"
+    path = "./data/frames"
     img_path = os.path.join(path, video_name)
 
     img_list = os.listdir(img_path)
     img_list.sort()
 
-    frame_idx = img_list[0 + 8 * frame_flag]
+    frame_idx = img_list[0 + frame_flag]
     img_tensor = load_frame_info(img_path, frame_idx)
     select_img = img_tensor.cpu().numpy()
 
@@ -64,7 +65,7 @@ class AVQA_dataset(Dataset):
 
     def __init__(self, label_data, audio_dir, video_dir, transform=None):
 
-        samples = json.load(open('../dataset/avqa-train_real.json', 'r'))
+        samples = json.load(open('./data/avqa-train_real.json', 'r'))
 
         self.samples = json.load(open(label_data, 'r'))
 

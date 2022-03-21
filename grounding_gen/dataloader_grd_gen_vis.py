@@ -41,13 +41,14 @@ def load_frame_info(img_path, img_file):
 
 def image_info(video_name, frame_flag):
 
-    path = "/home/guangyao_li/dataset/avqa/avqa-frames-8fps"
+    # path = "./data/frames-8fps"
+    path = "./data/frames"
     img_path = os.path.join(path, video_name)
 
     img_list = os.listdir(img_path)
     img_list.sort()
 
-    frame_idx = img_list[0 + 8 * frame_flag]
+    frame_idx = img_list[0 + frame_flag]
     img_org, img_tensor = load_frame_info(img_path, frame_idx)
     select_img = img_tensor.cpu().numpy()
     img_org = np.array(img_org)
@@ -67,7 +68,7 @@ class AVQA_dataset(Dataset):
 
     def __init__(self, label_data, audio_dir, video_dir, transform=None):
 
-        samples = json.load(open('../dataset/avqa-train_fake.json', 'r'))
+        samples = json.load(open('../data/json/avqa-train_real.json', 'r'))
 
         self.samples = json.load(open(label_data, 'r'))
 
@@ -91,13 +92,10 @@ class AVQA_dataset(Dataset):
 
     def __getitem__(self, idx):
 
-        # print("len samples: ", self.video_len)
-
         pos_frame_id = idx
         pos_video_id = int(idx / 10)
         pos_frame_flag = idx % 10
         pos_video_name = self.video_list[pos_video_id]
-        # print("pos name: ", pos_video_name)
 
         while(1):
             neg_frame_id = random.randint(0, self.video_len - 1)
@@ -111,7 +109,6 @@ class AVQA_dataset(Dataset):
         aud_id = pos_video_id
         aud_flag = pos_frame_flag
 
-        # print(pos_video_id, neg_video_id, aud_id)
         pos_frame_org, pos_frame = image_info(pos_video_name, pos_frame_flag)
         neg_frame_org, neg_frame = image_info(neg_video_name, neg_frame_flag)
 
@@ -123,7 +120,6 @@ class AVQA_dataset(Dataset):
         video_s = torch.cat((pos_frame, neg_frame), dim=0)
         audio = torch.cat((sec_audio, sec_audio), dim=0)
 
-
         label  = torch.Tensor(np.array([1, 0]))
 
         video_id = pos_video_name
@@ -133,18 +129,3 @@ class AVQA_dataset(Dataset):
             sample = self.transform(sample)
 
         return sample
-
-
-# class ToTensor(object):
-
-#     def __call__(self, sample):
-
-#         video_id = sample['video_id']
-#         audio = sample['audio']
-#         video_s = sample['video_s']
-#         label = sample['label']
-
-#         return {'video_id':video_id, 
-#                 'audio': torch.from_numpy(audio), 
-#                 'video_s': torch.from_numpy(video_s),
-#                 'label': torch.from_numpy(label)}
