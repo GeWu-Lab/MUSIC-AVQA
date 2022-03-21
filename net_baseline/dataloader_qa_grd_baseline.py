@@ -41,15 +41,15 @@ def load_frame_info(img_path):
 
 def image_info(video_name):
 
-    path = "/home/guangyao_li/dataset/avqa/avqa-frames"
+    path = "./data/frames/"
     img_path = os.path.join(path, video_name)
 
     img_list = os.listdir(img_path)
     img_list.sort()
 
     select_img = []
-    for frame_idx in range(0,len(img_list),8):
-        if frame_idx < 475:
+    for frame_idx in range(0,len(img_list),1):
+        if frame_idx < 60:
             video_frames_path = os.path.join(img_path, str(frame_idx+1).zfill(6)+".jpg")
 
             frame_tensor_info = load_frame_info(video_frames_path)
@@ -74,7 +74,7 @@ class AVQA_dataset(Dataset):
 
     def __init__(self,gt_dir,label, audio_dir, video_dir, st_dir, transform=None):
 
-        samples = json.load(open('../dataset/avqa-train.json', 'r'))
+        samples = json.load(open('../data/json/avqa-train.json', 'r'))
 
         # nax =  nne
         ques_vocab = ['<pad>']
@@ -131,12 +131,10 @@ class AVQA_dataset(Dataset):
         sample = self.samples[idx]
 
         name = sample['video_id']
-        # print("\n---------------------------name: ", name)
         audio = np.load(os.path.join(self.audio_dir, name + '.npy'))
         audio=audio[::6,:]
-        
 
-        visual_out_res18_path='/home/guangyao_li/dataset/avqa-features/visual_14x14'
+        visual_out_res18_path='./data/feats/res18_14x14'
         visual_posi=np.load(os.path.join(visual_out_res18_path, name + '.npy'))
 
         # visual_posi = torch.from_numpy(visual_posi)
