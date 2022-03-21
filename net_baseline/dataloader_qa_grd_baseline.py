@@ -72,7 +72,7 @@ def ids_to_multinomial(id, categories):
 
 class AVQA_dataset(Dataset):
 
-    def __init__(self,gt_dir,label, audio_dir, video_dir, st_dir, transform=None):
+    def __init__(self, label, audio_dir, video_dir, st_dir, transform=None):
 
         samples = json.load(open('../data/json/avqa-train.json', 'r'))
 
@@ -106,8 +106,6 @@ class AVQA_dataset(Dataset):
 
         self.samples = json.load(open(label, 'r'))
         self.max_len = 14
-
-        self.gt_dir = gt_dir
 
         self.audio_dir = audio_dir
         self.video_dir = video_dir
