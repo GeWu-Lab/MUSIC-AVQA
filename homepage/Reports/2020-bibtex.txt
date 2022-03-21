@@ -1,0 +1,6 @@
+@techreport{Damen2020CHALLENGES,
+  author      = “Damen, Dima and Kazakos, Evangelos and Price, Will and Ma, Jian and Doughty, Hazel and Furnari, Antonino and Farinella, Giovanni Maria",
+  title       = "EPIC-KITCHENS-55 - 2020 Challenges Report",
+  institution = “University of Bristol",
+  year        = “2020"
+}

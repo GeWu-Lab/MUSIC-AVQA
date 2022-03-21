@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: CorelDRAW 2017 -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xml:space="preserve"
+   width="50mm"
+   height="50mm"
+   version="1.1"
+   style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+   viewBox="0 0 2011.4576 2011.4576"
+   id="svg19"
+   sodipodi:docname="epic-kitchens-logo.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"><metadata
+     id="metadata23"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview21"
+     showgrid="false"
+     units="mm"
+     inkscape:zoom="1.5508525"
+     inkscape:cx="-25.627586"
+     inkscape:cy="163.96198"
+     inkscape:current-layer="svg19" /><defs
+     id="defs4"><style
+       type="text/css"
+       id="style2"><![CDATA[
+    .fil2 {fill:#1F1F1F}
+    .fil3 {fill:#FE002A}
+    .fil0 {fill:white}
+    .fil1 {fill:#1F1F1F;fill-rule:nonzero}
+   ]]></style></defs><g
+     id="g843"
+     transform="translate(-2327.5912,-2000.6212)"><path
+       style="fill:#1f1f1f;fill-rule:nonzero"
+       inkscape:connector-curvature="0"
+       id="path9"
+       d="m 3458.08,2568.76 c 187.7,25.49 356.08,107.6 484.51,227.21 157.86,147.03 255.51,350.45 255.51,575.38 h -162.45 c 0,-178.12 -77.76,-339.62 -203.48,-456.71 -127.26,-118.53 -303.62,-191.86 -498.86,-191.86 -195.24,0 -371.59,73.33 -498.85,191.86 -125.72,117.09 -203.48,278.59 -203.48,456.71 h -162.45 c 0,-224.93 97.65,-428.35 255.51,-575.38 128.43,-119.62 296.8,-201.74 484.52,-227.21 -33.19,-50.21 -84.82,-130.44 -73.22,-150.99 14.07,-24.93 158.54,-27.81 197.98,-28.04 39.44,0.23 183.91,3.12 197.98,28.04 11.6,20.55 -40.03,100.79 -73.22,150.99 z"
+       class="fil1" /><path
+       style="fill:#1f1f1f"
+       inkscape:connector-curvature="0"
+       id="path11"
+       d="M 2468.55,3472.88 H 4198.11 V 3558 c 0,35.74 -29.23,64.97 -64.97,64.97 H 2533.53 c -35.74,0 -64.97,-29.23 -64.97,-64.97 v -85.12 z"
+       class="fil2" /><path
+       style="fill:#fe002a"
+       inkscape:connector-curvature="0"
+       id="path13"
+       d="m 3193.61,3294.72 0.89,-157.64 0.91,-160.44 c 0.17,-29.85 15.06,-55.39 40.95,-70.24 25.89,-14.84 55.46,-14.8 81.31,0.12 l 136.37,78.74 136.38,78.74 c 25.85,14.93 40.67,40.51 40.76,70.36 0.09,29.85 -14.59,55.51 -40.35,70.59 l -138.48,81.01 -136.08,79.59 c -25.97,15.19 -55.85,15.28 -81.9,0.24 -26.06,-15.05 -40.93,-40.96 -40.75,-71.05 z"
+       class="fil3" /></g></svg>
