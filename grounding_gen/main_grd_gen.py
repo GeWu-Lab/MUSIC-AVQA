@@ -1,6 +1,6 @@
 from __future__ import print_function
 import sys 
-sys.path.append("/home/guangyao_li/projects/avqa/avqa-code-cvpr2022-0922/grounding_localization") 
+sys.path.append("/home/guangyao_li/projects/music_avqa/")   # path to your project root
 
 import argparse
 import torch
@@ -67,12 +67,9 @@ def eval(model, val_loader, epoch):
             
             _, predicted = torch.max(preds, 1)
             total += preds.size(0)
-
             correct += (predicted == target).sum().item()
             
-
     print('Accuracy: %.2f %%' % (100 * correct / total))
-
     writer.add_scalar('eval/grd_gen_acc', float((100 * correct / total)), epoch)
 
     return 100 * correct / total

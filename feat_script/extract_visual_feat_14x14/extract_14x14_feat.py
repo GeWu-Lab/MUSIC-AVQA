@@ -1,5 +1,5 @@
 import sys 
-sys.path.append("/home/guangyao_li/projects/avqa/feat_script/") 
+sys.path.append("/home/guangyao_li/projects/music_avqa/") 
 import shutil
 import subprocess
 import glob

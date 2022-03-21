@@ -48,7 +48,7 @@ def pool_process(video_pth, save_pth, pool=None):
 
 if __name__ == "__main__":
 
-    video_pth =  "./data/video/"
+    video_pth =  "./data/video/"            
     save_pth =  "./data/audio/"
 
     # multiprocessing

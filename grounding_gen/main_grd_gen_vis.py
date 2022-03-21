@@ -1,6 +1,6 @@
 from __future__ import print_function
 import sys 
-sys.path.append("/home/guangyao_li/projects/avqa/avqa-code-cvpr2022-0922/grounding_localization") 
+sys.path.append("/home/guangyao_li/projects/music_avqa/") 
 
 import argparse
 import torch
