@@ -41,15 +41,14 @@ def load_frame_info(img_path):
 
 def image_info(video_name):
 
-    # path = "/home/share/GSAI-M3PL-Lab/AVQA/avqa-frames-8fps"
-    path = "/home/guangyao_li/dataset/avqa/avqa-frames-8fps"
+    path = "./data/frames"
     img_path = os.path.join(path, video_name)
 
     img_list = os.listdir(img_path)
     img_list.sort()
 
     select_img = []
-    for frame_idx in range(0,len(img_list),8):
+    for frame_idx in range(0,len(img_list),1):
         if frame_idx < 475:
             video_frames_path = os.path.join(img_path, str(frame_idx+1).zfill(6)+".jpg")
 
@@ -73,11 +72,9 @@ def ids_to_multinomial(id, categories):
 
 class AVQA_dataset(Dataset):
 
-    def __init__(self, gt_dir, label, audio_dir, video_dir, st_dir, transform=None, mode_flag='train'):
-
-
-        samples = json.load(open('../dataset/avqa-train.json', 'r'))
-
+    def __init__(self, label, audio_dir, video_dir, st_dir, transform=None, mode_flag='train'):
+        
+        samples = json.load(open('./data/json/avqa-train.json', 'r'))
 
         # nax =  nne
         ques_vocab = ['<pad>']
@@ -85,7 +82,6 @@ class AVQA_dataset(Dataset):
         i = 0
         for sample in samples:
             i += 1
-            # print(sample, sample['video_id'], sample['question_content'], len(ast.literal_eval(sample['templ_values'])))
             question = sample['question_content'].rstrip().split(' ')
             question[-1] = question[-1][:-1]
 
@@ -101,16 +97,12 @@ class AVQA_dataset(Dataset):
             if sample['anser'] not in ans_vocab:
                 ans_vocab.append(sample['anser'])
 
-       
-
         self.ques_vocab = ques_vocab
         self.ans_vocab = ans_vocab
         self.word_to_ix = {word: i for i, word in enumerate(self.ques_vocab)}
 
         self.samples = json.load(open(label, 'r'))
         self.max_len = 14
-
-        self.gt_dir = gt_dir
 
         self.audio_dir = audio_dir
         self.video_dir = video_dir
@@ -120,7 +112,6 @@ class AVQA_dataset(Dataset):
         video_list = []
         for sample in self.samples:
             video_name = sample['video_id']
-            # print("video_name", video_name)
             if video_name not in video_list:
                 video_list.append(video_name)
 
@@ -136,17 +127,13 @@ class AVQA_dataset(Dataset):
         sample = self.samples[idx]
 
         name = sample['video_id']
-        # print("\n---------------------------name: ", name)
         audio = np.load(os.path.join(self.audio_dir, name + '.npy'))
         audio = audio[::6, :]
 
-        visual_out_res18_path='/home/guangyao_li/dataset/avqa-features/visual_14x14'
+        visual_out_res18_path='./data/feats/res18_14x14'
         visual_posi=np.load(os.path.join(visual_out_res18_path, name + '.npy'))  
         # visual_posi 60 512 14 14
         visual_posi = visual_posi[::6, :]
-
-        # print("\n\naudio: ", audio.shape)
-        # print("visual_posi: ", visual_posi.shape, "\n\n")
 
         video_idx=self.video_list.index(name)
 
@@ -155,7 +142,6 @@ class AVQA_dataset(Dataset):
 
                 neg_frame_id = random.randint(0, self.video_len - 1)
                 if (int(neg_frame_id/60) != video_idx):
-                    # print(" Successfully! ")
                     break
             neg_video_id = int(neg_frame_id / 60)
             neg_frame_flag = neg_frame_id % 60
@@ -169,8 +155,6 @@ class AVQA_dataset(Dataset):
                 visual_nega=visual_nega_clip
             else:
                 visual_nega=torch.cat((visual_nega,visual_nega_clip),dim=0)
-
-
 
         ### visual nega 60,512,14,14
 

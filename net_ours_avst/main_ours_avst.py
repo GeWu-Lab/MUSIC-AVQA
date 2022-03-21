@@ -104,7 +104,7 @@ def test(model, val_loader):
     model.eval()
     total = 0
     correct = 0
-    samples = json.load(open('../dataset/avqa-test.json', 'r'))
+    samples = json.load(open('./data/json/avqa-test.json', 'r'))
     A_count = []
     A_cmp = []
     V_count = []
@@ -186,21 +186,19 @@ def main():
     parser = argparse.ArgumentParser(description='PyTorch Implementation of Audio-Visual Question Answering')
 
     parser.add_argument(
-        "--audio_dir", type=str, default='/home/guangyao_li/dataset/avqa-features/feats/vggish', help="audio dir")
+        "--audio_dir", type=str, default='./data/feats/vggish', help="audio dir")
     parser.add_argument(
-        "--video_dir", type=str, default='/home/guangyao_li/dataset/avqa/avqa-frames-8fps', help="video dir")
+        "--video_dir", type=str, default='./data/frames', help="video dir")
     parser.add_argument(
-        "--gt_dir", type=str, default='/home/guangyao_li/dataset/avqa/avqa-frames-1fps-bbox-p0.5/bbox_frame_count_gt', help="gt dir")
-    parser.add_argument(
-        "--st_dir", type=str, default='/home/guangyao_li/dataset/avqa-features/feats/r2plus1d_18', help="video dir")
+        "--st_dir", type=str, default='./data/feats/r2plus1d_18', help="video dir")
     
 
     parser.add_argument(
-        "--label_train", type=str, default="../dataset/avqa-train.json", help="train csv file")
+        "--label_train", type=str, default="./data/json/avqa-train.json", help="train csv file")
     parser.add_argument(
-        "--label_val", type=str, default="../dataset/avqa-val.json", help="val csv file")
+        "--label_val", type=str, default="./data/json/avqa-val.json", help="val csv file")
     parser.add_argument(
-        "--label_test", type=str, default="../dataset/avqa-test.json", help="test csv file")
+        "--label_test", type=str, default="./data/json/avqa-test.json", help="test csv file")
     parser.add_argument(
         '--batch-size', type=int, default=64, metavar='N', help='input batch size for training (default: 16)')
     parser.add_argument(
@@ -236,11 +234,9 @@ def main():
         raise ('not recognized')
 
     if args.mode == 'train':
-        train_dataset = AVQA_dataset(gt_dir=args.gt_dir, label=args.label_train, audio_dir=args.audio_dir, video_dir=args.video_dir,
-                                    st_dir=args.st_dir, transform=transforms.Compose([ToTensor()]), mode_flag='train')
+        train_dataset = AVQA_dataset(label=args.label_train, audio_dir=args.audio_dir, video_dir=args.video_dir, st_dir=args.st_dir, transform=transforms.Compose([ToTensor()]), mode_flag='train')
         train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=1, pin_memory=True)
-        val_dataset = AVQA_dataset(gt_dir=args.gt_dir, label=args.label_val, audio_dir=args.audio_dir, video_dir=args.video_dir,
-                                    st_dir=args.st_dir, transform=transforms.Compose([ToTensor()]), mode_flag='val')
+        val_dataset = AVQA_dataset(label=args.label_val, audio_dir=args.audio_dir, video_dir=args.video_dir, st_dir=args.st_dir, transform=transforms.Compose([ToTensor()]), mode_flag='val')
         val_loader = DataLoader(val_dataset, batch_size=1, shuffle=False, num_workers=1, pin_memory=True)
 
 
@@ -275,8 +271,7 @@ def main():
                 torch.save(model.state_dict(), args.model_save_dir + args.checkpoint + ".pt")
 
     else:
-        test_dataset = AVQA_dataset(gt_dir=args.gt_dir, label=args.label_test, audio_dir=args.audio_dir, video_dir=args.video_dir,
-                                   st_dir=args.st_dir, transform=transforms.Compose([ToTensor()]), mode_flag='test')
+        test_dataset = AVQA_dataset(label=args.label_test, audio_dir=args.audio_dir, video_dir=args.video_dir, st_dir=args.st_dir, transform=transforms.Compose([ToTensor()]), mode_flag='test')
         print(test_dataset.__len__())
         test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=4, pin_memory=True)
         model.load_state_dict(torch.load(args.model_save_dir + args.checkpoint + ".pt"))
