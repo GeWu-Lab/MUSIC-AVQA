@@ -259,12 +259,13 @@ layout: default
       <p class="text-muted" style="text-align:left">
         <b>Some video examples with QA pairs in the MUSIC-AVQA dataset. We can better understand this dataset through the example of audio and video.
       </p>
-      <p class="text-muted" style="text-align:left; margin-right: 10px;">
-        <b>Question</b>: How many instruments are sounding in the video? <br>
-        <b>Answer</b>: two <br>
-        To answer the question, an AVQA model needs to first identify objects and sound sources in the video, and then count all sounding objects. Although there are three different sound sources in the audio modality, only two of them are visible. Rather than simply counting all audio and visual instances, exploiting audio-visual association is important for AVQA.
-        <video width="60%" height="40%" controls>
-          <source src="{{ site.baseurl }}/static/videos/music_avqa_example1.mp4" align="right" type="video/mp4">
+      <p class="text-muted" style="text-align:right; margin-right: 10px;">
+        <video controls>
+          <!-- <source src="{{ site.baseurl }}/static/videos/music_avqa_example1.mp4" align="right" type="video/mp4"> -->
+          <source src="https://www.bilibili.com/video/BV1Br4y1q7YN/" align="left" width="60%" height="40%" type="video/mp4">
+          <b>Question</b>: How many instruments are sounding in the video? <br>
+          <b>Answer</b>: two <br>
+          To answer the question, an AVQA model needs to first identify objects and sound sources in the video, and then count all sounding objects. Although there are three different sound sources in the audio modality, only two of them are visible. Rather than simply counting all audio and visual instances, exploiting audio-visual association is important for AVQA.
         </video>
         
       </p>
