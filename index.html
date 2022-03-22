@@ -1,0 +1,1176 @@
+---
+title: "MUSIC-AVQA"
+layout: default
+---
+
+<!-- <div style="position: fixed; bottom: 15px; right:1px;">
+  <a href=""> <img src="{{ site.baseurl }}/static/img/logo/cn.png" width="50%"; /> </a>
+</div> -->
+
+<!-- About -->
+<section class="bg-light" id="about">
+  <div class="container">
+    
+<!--     <div class="row">
+      <div class="col-lg-12">
+        <video autoplay muted loop width="100%"> -->
+          <!-- <source src="{{ site.baseurl }}/static/videos/03x03_videoWall.webm" type="video/webm"> -->
+<!--             <source src="{{ site.baseurl }}/static/videos/st_avqa.mp4" type="video/mp4">
+              <source src="{{ site.baseurl }}/static/videos/st_avqa.mp4" type="video/mp4">
+                Sorry, we cannot display the MUSIC-AVQA video wall as
+                your browser doesn't support HTML5 video.
+        </video>
+      </div>
+    </div>
+ -->
+
+
+<!--     <div class="row">
+      <div class="col-lg-12">
+        <h3 class="section-heading text-uppercase" style="text-align:center;">Learning to Answer Questions in Dynamic Audio-Visual Scenarios</h3>
+        <h5 class="text-muted" style="text-align:center;">
+          <ul>
+              Guangyao Li<sup>1,&dagger;</sup>, 
+              Yake Wei<sup>1,&dagger;</sup>, 
+              Yapeng Tian<sup>2,&dagger;</sup>, 
+              Chenliang Xu<sup>2</sup>, 
+              Ji-Rong Wen<sup>1</sup>, 
+              Di Hu<sup>1,*</sup><br>
+              <sup>1</sup>Renmin University of China, 
+              <sup>2</sup>University of Rochester            
+          </ul>
+        </h5>
+        <p class="text-muted" style="text-align:center; color:#00F">
+          <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">[Paper]&nbsp;
+            <a href="{{ site.baseurl }}/static/files/st-avqa-supplementary.pdf">[Supplementary]</a>&nbsp;
+            <a href="{{ site.baseurl }}/static/files/st-avqa-poster.pdf">[Poster]</a>&nbsp;
+            <a href="https://www.youtube.com/watch?v=jn_4iabJcZw">[Video]</a>&nbsp;
+            <a href="https://www.bilibili.com/video/BV1Br4y1q7YN/">[Video]</a>&nbsp;
+            <a href="https://github.com/">[Code]</a>
+        </p>
+      </div>
+    </div>
+    <hr /> -->
+
+
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="section-heading text-uppercase">Update</h2>
+        <h5 class="text-muted" style="text-align:left;">
+          <ul>
+              <li>Stay tuned for more news.</li>
+              <li>28 Mar 2022: Camera-ready version has been released <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">here</a>!</li>
+              <li>22 Mar 2022: The MUSIC-AVQA dataset has been released <a href="https://github.com/">here</a>!</li>
+              <li>18 Mar 2022: Code has been released <a href="https://github.com/GeWu-Lab/MUSIC-AVQA">here</a>!</li>
+              <li>08 Mar 2022: Watch the project's video demonstration on 
+                <a href="https://www.youtube.com/watch?v=jn_4iabJcZw">YouTube</a> or 
+                <a href="https://www.bilibili.com/video/BV1Br4y1q7YN/">Bilibili</a>.</li>
+              <li>02 Mar 2022: Our paper is accepted for publication at CVPR2022. Camera-ready version and code will be released soon!</li>
+          </ul>
+        </h5>
+      </div>  
+    </div>
+
+    <br/>
+
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="section-heading text-uppercase">What is AVQA task?</h3>
+          <p  class="text-muted">
+            We are surrounded by audio and visual messages in daily life, and both modalities jointly improve our ability in scene perception and understanding. For instance, imagining that we are in a concert, watching the performance and listening to the music at the same time contribute to better enjoyment of the show. Inspired by this, how to make machines integrate multimodal information, especially the natural modality such as the audio and visual ones, to achieve considerable scene perception and understanding ability as humans is an interesting and valuable topic. 
+            We focus on <b><font color="blue">audio-visual question answering (AVQA) task, which aims to answer questions regarding different visual objects, sounds, and their associations in videos</font></b>. The problem requires comprehensive multimodal understanding and spatio-temporal reasoning over audio-visual scenes.
+          </p>
+          <center><img src="{{ site.baseurl }}/static/img/avqa/avqa_teaser.png" alt="" style="width:70%;  margin-top:8px; margin-bottom:15px;"></center>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <ul> -->
+          <p class="text-muted">
+            <b>For instance</b>, as shown in this Figure, when answering the audio-visual question “<b>Which clarinet makes the sound first</b>” for this instrumental ensemble, it requires to locate sounding objects “<b>clarinet</b>” in the audio-visual scenario and focus on the “<b>first</b>” sounding “<b>clarinet</b>” in the timeline. To answer the question correctly, both effective audio-visual scene understanding and spatio-temporal reasoning are essentially desired.
+          </p>
+          <p class="text-muted">
+            Audio-visual question answering requires auditory and visual modalities for multimodal scene understanding and spatiotemporal reasoning. For example, when we encounter a complex musical performance scene involving multiple sounding and nonsounding instruments above, it is difficult to analyze the sound first term in the question by VQA model that only considers visual modality. While if we only consider the AQA model with mono sound, the left or right position is also hard to be recognized. However, we can see that using both auditory and visual modalities can answer this question effortlessly.
+          </p>
+        <!-- </ul> -->
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="section-heading text-uppercase">What is MUSIC-AVQA dataset?</h3>
+        <!-- <h5 class="text-muted" style="text-align:left;"> -->
+          <!-- <ul> -->
+            <p class="text-muted">
+              To explore scene understanding and spatio-temporal reasoning over audio and visual modalities, we build a largescale audio-visual dataset, MUSIC-AVQA, which focuses on question-answering task. As noted above, high-quality datasets are of considerable value for AVQA research.
+            </p>
+            <p class="text-muted">
+              <b>Why musical performance? </b>Considering that musical performance is a typical multimodal scene consisting of abundant audio and visual components as well as their interaction, it is appropriate to be utilized for the exploration of effective audio-visual scene understanding and reasoning.
+            </p>
+
+          <!-- </ul> -->
+        </h5>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <!-- news column -->
+      <div class="col-md-4">
+        <h4 class="service-heading">Basic informations</h4>
+        <p class="text-muted">We choose to manually collect amounts of musical performance videos from YouTube. Specifically, 22 kinds of instruments, such as guitar, cello, and xylophone, are selected and 9 audio-visual question types are accordingly designed, which cover three different scenarios, i.e., audio, visual and audio-visual. Annotations are collected using a novel by our GSAI-Labeled system.</p>
+
+      </div>
+      <!-- characteristics column -->
+      <div class="col-md-4">
+        <h4 class="service-heading">Characteristics</h4>
+        <ul class="text-muted">
+          <li class="text-muted">3 typical multimodal scene</li>
+          <li class="text-muted">22 kinds of instruments</li>
+          <li class="text-muted">4 categories: String, Wind, Percussion and Keyboard.</li>
+          <li class="text-muted"><b>9,290</b> videos for over <b>150</b> hours</li>
+          <li class="text-muted">7,423 real videos</li>
+          <li class="text-muted">1,867 synthetic videos</li>
+          <li class="text-muted">9 audio-visual question types</li>
+          <li class="text-muted"><b>45,867</b> question-answer pairs</li>
+          <li class="text-muted">Diversity, complexity and dynamic</li>
+        </ul>
+      </div>
+
+      <!-- udated column -->
+      <div class="col-md-4">
+        <h4 class="service-heading">Personal data/Human subjects</h4>
+        <!-- <ul class="text-muted"> -->
+          <p class="text-muted">Videos in MUSIC-AVQA are public on YouTube, and annotated via crowdsourcing. We have explained how the data would be used to crowdworkers. Our dataset does not contain personally identifiable information or offensive content.</p>
+        <!-- </ul> -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <video autoplay muted loop width="100%">
+          <!-- <source src="{{ site.baseurl }}/static/videos/03x03_videoWall.webm" type="video/webm"> -->
+            <source src="{{ site.baseurl }}/static/videos/music_avqa_720p.mp4" type="video/mp4">
+              <source src="{{ site.baseurl }}/static/videos/music_avqa_720p.mp4" type="video/mp4">
+                Sorry, we cannot display the MUSIC-AVQA video wall as your browser doesn't support HTML5 video.
+        </video>
+      </div>
+    </div>
+    <!-- video banner row -->
+      
+       
+
+
+  </div>
+</section>
+
+<!-- Stats -->
+<section id="stats">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">MUSIC-AVQA Dataset</h2>
+        <h3 class="section-subheading text-muted">Some graphical representations of our dataset and annotations</h3>
+      </div>
+    </div>
+
+
+
+      
+    <div class="row justify-content-md-center text-center">
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="{{ site.baseurl }}/static/img/stats-figures/stat1.png" style="width: 100%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted" style="text-align:left"><b>Illustrations of our MUSIC-AVQA dataset statistics</b>. <b>(a-d)</b> statistical analysis of the videos and QA pairs. <b>(e)</b> Question formulas. <b>(f)</b> Distribution of question templates, where the dark color indicates the number of QA pairs generated from real videos while the light-colored area on the upper part of each bar means that from synthetic videos. <b>(g)</b> Distribution of first n-grams in questions. Our QA-pairs need <b>fine-grained scene understanding</b> and <b>spatio-temporal reasoning</b> over audio and visual modalities to be solved. For example, existential and location questions require spatial reasoning, and temporal questions require temporal reasoning. Best viewed in color.</p>
+    </div>
+
+
+    <!-- <div class="row justify-content-md-center text-center">
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="{{ site.baseurl }}/static/img/stats-figures/matrix.png" style="width: 100%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted" style="text-align:left"><b>Left: </b>Number of combinations of different types of instruments, where the lighter the color, the more the number. And instruments outside the 22 instrument categories are denoted by other. The confusion matrix shows that the combination of different instruments is diversified. <b>Right-top: </b> According to Wikipedia, 22 kinds of instruments are divided into 4 categories: <i>String, Wind, Percussion</i> and <i>Keyboard</i>. <b>Right-bottom: </b>9 question types in different scenarios.</p>
+    </div> -->
+
+
+    <div class="row justify-content-md-center text-center">
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="{{ site.baseurl }}/static/img/stats-figures/comp_others.png" style="width: 100%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted" style="text-align:left">
+        <b>Comparison with other video QA datasets</b>. Our MUSIC-AVQA dataset focuses on the interaction between visual objects and their produced sounds, offering QA pairs that covering audio questions, visual questions and audio-visual questions, which is more comprehensive than other datasets. The collected videos in MUSIC-AVQA can facilitate <b>audio-visual understanding in terms of spatial and temporal associations</b>.
+      </p>
+    </div>
+
+    <br/>
+
+
+    <div class="row justify-content-md-center text-center">
+      <div class="col-md-12" style="text-align:left">
+        <h4 class="section-subheading" id="downloadFiles" style="text-align:left; margin-left:-14px">How was MUSIC-AVQA dataset made?</h4>
+      </div>
+      <hr/>
+      <p class="text-muted" style="text-align:left">
+        We design an audio-visual question answering labeling system to collect questions, and all QA pairs are collected with this system. The flow chart of the labeling system is shown in below figure.
+      </p>
+      <center>
+        <img src="{{ site.baseurl }}/static/img/stats-figures/annotation_framework.png" alt="" style="width:88%;  margin-top:10px; margin-bottom:10px;"> 
+      </center>
+      <p class="text-muted" style="text-align:left">
+        Labeling system contains <b>questioning</b> and <b>answering</b>. In the questioning section, the annotator is required to select the performance type of the video and the included instruments, and then scene types, question types, and question templates, and finally one question is automatically generated based on the previous selection. In the answering part, the annotator to judge whether the question is reasonable, and if it is unreasonable, the question will be labeled again. Then, the annotator answering the question according to video content, and finally one QA pair is produced.
+      </p>
+    </div>
+
+    <br/>
+
+
+    <div class="row justify-content-md-center text-center">
+      <div class="col-md-12" style="text-align:left">
+        <h4 class="section-subheading" style="text-align:left; margin-left:-14px">QA pairs samples</h4>
+      </div>
+      <hr/>
+      <p class="text-muted" style="text-align:left">
+        <b>Demo.</b> The large-scale spatial-temporal audio-visual dataset that focuses on question-answering task, as shown in below figure that different audio-visual scene types and their annotated QA pairs in the AVQA dataset.
+      </p>
+
+      <hr/>
+
+      <div class="col-md centered" style="padding:0.3rem;">
+        <img src="{{ site.baseurl }}/static/img/stats-figures/st_avqa_pairs.png" style="width: 100%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted", style="text-align:left">
+        In the first row, <b>a)</b>, <b>b)</b>, and <b>c)</b> represent real musical performance videos, namely solo, ensemble of the same instrument, and ensemble of different instruments. In the second row, <b>d)</b>, <b>e)</b>, and <b>f)</b> represent the synthetic video, which are audio and video random matching, audio overlay, and video stitching, respectively.
+      </p>
+    </div>
+
+
+    <div class="row justify-content-md-center text-center">
+      <div class="col-md-12" style="text-align:left">
+        <h4 class="section-subheading" style="text-align:left; margin-left:-14px">More video examples</h4>
+      </div>
+      <hr/>
+      <p class="text-muted" style="text-align:left">
+        Some video examples with QA pairs in the MUSIC-AVQA dataset. 
+        Through these examples, we can have a better understanding of the dataset, and can more intuitively feel the QA tasks in dynamic and complex audio-visual scenes
+      </p>
+      <p class="text-muted" style="text-align:left; margin-right: 10px;">
+ 
+        <!-- example 1 -->
+        <table>
+          <tr>
+            <td style="width:1%"></td>
+            <td style="width:31%">
+              <video width="100%" controls="controls">
+                <source src="{{ site.baseurl }}/static/videos/music_avqa_example1.mp4" align="left" type="video/mp4">
+              </video>
+            </td>
+            <td style="width:1%"></td>
+            <td style="width: 67%; text-align:left; padding:0.2rem" class="text-muted">
+              <b>Question</b>: How many instruments are sounding in the video? <br>
+              <b>Answer</b>: two <br>
+              To answer the question, an AVQA model needs to first identify objects and sound sources in the video, and then count all sounding objects. Although there are three different sound sources in the audio modality, only two of them are visible. Rather than simply counting all audio and visual instances, exploiting audio-visual association is important for AVQA.
+            </td>
+          </tr>
+        </table>
+
+        <!-- example 2 -->
+        <table>
+          <tr>
+            <td style="width:1%"></td>
+            <td style="width:31%">
+              <video width="100%" controls="controls">
+                <source src="{{ site.baseurl }}/static/videos/music_avqa_example2.mp4" align="left" type="video/mp4">
+              </video>
+            </td>
+            <td style="width:1%"></td>
+            <td style="width: 67%; text-align:left; padding:0.2rem" class="text-muted">
+              <b>Question</b>: What is the first sounding instrument? <br>
+              <b>Answer</b>: piano <br>
+              To answer the question, an AVQA model needs to not only associate all instruments and their corresponding sounds in the video, but also identify the first instrument that makes sounds. Thus, the AVQA task is not a simple recognition problem, and it also involves <font color="orange"><b>audio-visual association</b></font> and <font color="orange"><b>temporal reasoning</b></font>. 
+
+            </td>
+          </tr>
+        </table>
+
+        <!-- example 3 -->
+        <table>
+          <tr>
+            <td style="width:1%"></td>
+            <td style="width:31%">
+              <video width="100%" controls="controls">
+                <source src="{{ site.baseurl }}/static/videos/music_avqa_example3.mp4" align="left" type="video/mp4">
+              </video>
+            </td>
+            <td style="width:1%"></td>
+            <td style="width: 67%; text-align:left; padding:0.2rem" class="text-muted">
+              <b>Question</b>: What is the left instrument of the second sounding instrument? <br>
+              <b>Answer</b>: guzheng <br>
+              To answer the question, an AVQA model needs to first identify the second sounding instrument: flute and then infer the instrument at its left. Besides recognizing objects, exploring audio-visual association, and performing temporal reasoning, <font color="orange"><b>spatial reasoning</b></font> is also crucial for AVQA.
+            </td>
+          </tr>
+        </table>
+
+        
+      </p>
+
+    </div>
+
+
+<!--     <div class="row justify-content-md-center text-center">
+      <div class="col-md-12" style="text-align:left">
+        <h4 class="section-subheading" id="downloadFiles">QA pairs samples</h4>
+      </div>
+      <hr/> -->
+    <!--   <div class="text-muted" style="text-align:left">
+      
+      </div> -->
+<!--       <hr/>
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="{{ site.baseurl }}/static/img/stats-figures/st_avqa_pairs.png" style="width: 100%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted" style="text-align:left">
+        The large-scale spatial-temporal audio-visual dataset that focuses on question-answering task, as shown in:
+      </p>
+    </div> -->
+
+<!--     <div class="row justify-content-md-center text-center">
+    <div class="col-md-12">
+      <h4 class="section-subheading" id="downloadFiles">How was MUSIC-AVQA dataset made?</h4>
+        <div class="col-md centered" style="padding:1rem;">
+          <img src="{{ site.baseurl }}/static/img/stats-figures/annotation_framework.png" style="width: 100%" class="img-responsive"/> 
+        </div>
+        <p>
+          <b>Flow chart of the labeling system.</b> Labeling system contains questioning and answering. In the questioning section, the annotator is required to select the performance type of the video and the included instruments, and then scene types, question types, and question templates, and finally one question is automatically generated based on the previous selection. In the answering part, the annotator to judge whether the question is reasonable, and if it is unreasonable, the question will be labeled again. Then, the annotator answering the question according to video content, and finally one QA pair is produced.
+        </p>
+        <hr/>
+    </div>
+    </div> -->
+
+
+    <!-- <br/><br/> -->
+<!--     <div class="row justify-content-md-center text-center">
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="{{ site.baseurl }}/static/img/stats-figures/stat2.png" style="width: 100%" class="img-responsive"/> 
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center text-center">
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="{{ site.baseurl }}/static/img/stats-figures/stat3.png" style="width: 100%" class="img-responsive"/> 
+        <h4>Distribution</h4>
+      </div>
+    </div> -->
+      
+
+
+      <!-- <div class="col-md-6 centered" style="padding:1rem; vertical-align:bottom"> -->
+        <!-- TO ADD GRAPH: replace div below, ex: above <img> tag -->
+        <!-- <img src="{{ site.baseurl }}/static/img/stats-figures/masks.png" style="width: 100%" class="img-responsive"/>   -->
+        <!-- <h4>Automatic Annotations</h4> -->
+      <!-- </div> -->
+    </div>
+
+    <!-- <div class="row justify-content-md-center text-center">
+      <div class="col-md-4 centered" style="padding:1rem;">
+      <div id="graph4" style="width: 100%" class="img-responsive"></div>
+      <h4>Resolution</h4>
+      </div>
+      <div class="col-md-4 centered" style="padding:1rem;">
+      <div id="graph5" style="width: 100%" class="img-responsive"></div>
+      <h4>Number of Frames</h4>
+      </div>
+      <div class="col-md-4 centered" style="padding:1rem;">
+      <div id="graph6" style="width: 100%" class="img-responsive"></div>
+      <h4>Total number of hours</h4>
+      </div>
+      </div>
+      <div class="row justify-content-md-center text-center">
+      <div class="col-md-4 centered" style="padding:1rem;">
+      <div id="graph7" style="width: 100%" class="img-responsive"></div>
+      <h4>Number of annotators<br/>used per video</h4>
+      </div>
+      <div class="col-md-4 centered" style="padding:1rem;">
+      <div id="graph8" style="width: 100%" class="img-responsive"></div>
+      <h4>Splits</h4>
+      </div>
+      </div> -->
+
+      <!-- <div class="col-md-6">
+        <div class="card" style="border: solid 2px; background-color: #373435ff; margin-bottom:5px;">
+        <h1 style=" color: white; text-decoration: underline; text-decoration-color: #ed323eff;"> Baseline Models </h1>
+        <div id="graph9"></div>
+        </div>
+
+        <div class="card" style="border: solid 2px; background-color: #ed323eff;">
+        <h1 style=" color: white; text-decoration: underline; text-decoration-color: #373435ff;"> State of the Art Results </h1>
+        <div id="graph10"></div>
+        </div>
+
+        </div> -->
+  </div>
+</section>
+
+
+
+
+<section class="bg-light" id="downloads">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="section-heading text-uppercase">Download</h2>
+        <h3 class="section-subheading text-muted">Dataset publicly available for research purposes</h3>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12"> 
+        
+        <h4 class="section-subheading" id="downloadFiles">Data and Download</h4><hr/>
+        <p>Original videos (trimmed): Available at <a href="https://www.baidu.com">Baidu Drive</a>.</p>
+        <p>Features (VGGish, ResNet18 and R(2+1)D): Available at <a href="https://www.baidu.com">Baidu Drive</a>.
+          <ul>
+            <li>VGGish feature shape: [T, 128]&nbsp;&nbsp;<a href="http://www.google.com">Download</a></li>
+            <li>ResNet18 feature shape: [T, 512]&nbsp;&nbsp;<a href="http://www.google.com">Download</a></li></li>
+            <li>R(2+1)D feature shape: [T, 512]&nbsp;&nbsp;<a href="http://www.google.com">Download</a></li></li>
+          </ul>
+        </p>
+        <p> Annotations (QA pairs, etc.): Available for download at <a href="https://github.com/GeWu-Lab/MUSIC-AVQA/tree/main/data/json">GitHub</a>.</p>          
+        
+        
+        <br/>
+        <h4 class="section-subheading">How to read the annotation files?</h4>
+        <p>
+          The annotation files are stored in JSON format. Each annotation file contains seven different keyword: "video_id", "question_id", "type", "question_content", "templ_values", "question_deleted" and "anser". 
+          <!-- The information contained in each keyword is as follows: -->
+          Below, we present a detailed explanation of each keyword.
+          <ul class="text-muted">
+            <li>"type": the question's modality information and type.</li>
+            <li>"question_id": the unique identifier to QA pairs. .</li>
+            <li>"video_id", "question_content", "templ_values" and "anser": The contents of these keywords together construct the Q-A pairs corresponding to the video with id "video_id". The form of &lt;<i>FL</i>&gt; is the template word in the question, and its specific content is the information contained in "templ_values". See the <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">paper</a> for a more specific question template description</li>
+            <li>"question_deleted": The check code during data annotation process and it will not be used in the dataloader.</li>
+          </ul>
+        </p>
+        <p>
+        Below, we show an example entry from the JSON file:
+        </p>
+        <pre class="sample-annotation">
+        <code>
+        {
+          "video_id": "00000272",
+          "question_id": 50,
+          "type": "[\"Audio-Visual\", \"Temporal\"]",
+          "question_content": "Where is the &lt;<i>FL</i>&gt; sounding instrument?",
+          "templ_values": "[\"first\"]",
+          "question_deleted": 0,
+          "anser": "right"
+        }</code>
+        </pre>
+        <p>
+          The example shows the information and annotations related to the QA pairs corresponding to the video with id "video_id". As noted, we assign the unique identifier "50" to that QA pairs. 
+          From the entry, we can retrieve the video name, questions, answer and type where the QA pairs belongs. 
+          For example, the example above needs to <b>combine audio and visual modality information</b> to make a correct answer to this <i>temporal</i> question.
+        </p>          
+
+        <br/>
+        <h4 class="section-subheading">Publication(s)</h4>
+        <p>If you find our work useful in your research, please cite <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">our CVPR 2022 paper</a>.
+        </p>
+        <pre class="bibtex" style="text-align:left; margin-left:8px">
+        <code>
+        @ARTICLE{Li2022Learning,
+          title={Learning to Answer Questions in Dynamic Audio-Visual Scenarios},
+          author={Guangyao li, Yake Wei, Yapeng Tian, Chenliang Xu, Ji-Rong Wen, Di Hu},
+          journal   = {IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+          year      = {2022},
+          <!-- Url       = {https://doi.org/xxx} -->
+        }</code>
+        </pre>
+
+
+        <br/>
+        <h4 class="section-subheading">Disclaimer </h4>
+        <!-- <p>The MUSIC-AVQA was collected as a tool for research in computer vision. The dataset may have unintended biases (including those of a societal, gender or racial nature).</p> -->
+        <p> The released MUSIC-AVQA dataset is curated, which perhaps owns potential correlation between instrument and geographical area. This issue warrants further research and consideration.
+        </p>
+
+      </div>
+    </div>
+
+      
+      <!-- <div class="row">
+        <div class="col-md-12">
+          <h4 class="section-subheading">Disclaimer </h4>
+            <p>The MUSIC-AVQA was collected as a tool for research in computer vision. The dataset may have unintended biases (including those of a societal, gender or racial nature).</p>
+            <p> The released MUSIC-AVQA dataset is curated, which perhaps owns potential correlation between instrument and geographical area. This issue warrants further research and consideration.
+            </p>
+        </div>
+      </div> -->
+
+    <br/>
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="section-subheading">Copyright <img alt="Creative Commons License" style="border-width:1px;float:left;margin-right:15px;margin-bottom:0px;" src="https://i.creativecommons.org/l/by-nc/3.0/88x31.png"/></h4>
+        <p>
+          All datasets and benchmarks on this page are copyright by us and published under the <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a> License. This means that  you must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. You may not use the material for commercial purposes.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Benchmark -->
+<section id="challenges">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="section-heading text-uppercase">A Simple Baseline for MUSIC-AVQA</h2>
+        <!-- <h3 class="section-subheading text-muted">Challenge Details with links to &#9733;NEW&#9733; Codalab Leaderboards</h3> -->
+        <h3 class="section-subheading text-muted">Audio-visual spatial-temporal MUSIC-AVQA method, experimental results and simple analysis</h3>
+      </div>
+    </div>
+     
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted" style="text-align:left">
+          To solve the AVQA problem, we propose a spatio-temporal grounding model to achieve scene understanding and reasoning over audio and visual modalities. And to benchmark different models, we use answer prediction accuracy as the evaluation metric and evaluate performance of different models on answering different types of audio, visual, and audio-visual questions. <b>More details in the <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">[Paper]</a> and <a href="{{ site.baseurl }}/static/files/st-avqa-supplementary.pdf">[Supplementary]</a></b>.<br/>  
+        </p> 
+      </div>
+    </div>
+    
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="subheading">Spatio-temporal Grounding Model</h4>
+        <p class="text-muted" style="text-align:left">An overview of the proposed framework is illustrated in below figure. We consider that the sound and the location of its visual source usually reflects the spatial association between audio and visual modality, the <b>spatial grounding module</b>, which performs attention-based sound source localization, is therefore introduced to decompose the complex scenarios into concrete audio-visual association. To highlight the key timestamps that are closely associated to the question, we propose a <b>temporal grounding module</b>, which is designed for attending critical temporal segments among the changing audio-visual scenes and capturing question-aware audio and visual embeddings.</p>
+        
+        <div class="col-md centered" style="padding:0.2rem; text-align:center; margin-bottom:8px">
+        <img src="{{ site.baseurl }}/static/img/experiments/framework_pipeline_long.png" style="width: 100%;" class="img-responsive"/> 
+        </div>
+        <p class="text-muted" style="text-align:left">The <b>proposed audio-visual question answering model</b> takes pre-trained CNNs to extract audio and visual features and uses a LSTM to obtain a question embedding. We associate specific visual locations with the input sounds to perform spatial grounding, based on which audio and visual features of key timestamps are further highlighted via question query for temporal grounding. Finally, multimodal fusion is exploited to integrate audio, visual, and question information for predicting the answer to the input question. </p>
+      </div>
+    </div>
+
+
+    <br/>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="subheading">Experiments</h4>
+        <p class="text-muted" style="text-align:left">
+          To study different input modalities and validate the effectiveness of the proposed model, we conduct extensive ablations of our model and compare to recent QA approaches. 
+        </p>
+        <p class="text-muted" style="text-align:left; margin-right: 10px;">
+          <img src="{{ site.baseurl }}/static/img/experiments/exp2.png" align="right" width="40%" class="img-responsive"/> As shown in <b>right table</b>, we observe that leveraging audio, visual, and question information can boost AVQA task.
+          The <b>below table</b> shows that audio-visual video questiFon answering results of different methods on the test set of MUSIC-AVQA. And the top-2 results are highlighted.
+        </p>
+
+        <div class="col-md centered" style="padding:0.6rem; text-align:center">
+        <img src="{{ site.baseurl }}/static/img/experiments/exp1.png" style="width: 100%;" class="img-responsive"/> 
+        </div>
+        <p class="text-muted" style="text-align:left">
+          The results <b>firstly</b> demonstrate that all AVQA methods outperform A-, V- and VideoQA methods, which indicates that AVQA task can be boosted through multisensory perception. <b>Secondly</b>, our method achieves considerable improvement on most audio and visual questions. For the audio-visual question that desires spatial and temporal reasoning, our method is clearly superior over other methods on most question types, especially on answering the <i>Counting</i> and <i>Location</i> questions. <b>Moreover</b>, the results confirm the potential of our dataset as a testbed for audio-visual scene understanding.
+        </p>
+      </div>
+    </div>
+
+
+    <br/>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="subheading">Visualized spatio-temporal grounding results</h4>
+        <p class="text-muted" style="text-align:left">We provide several visualized spatial grounding results. The heatmap indicates the location of sounding source. Through the spatial grounding results, the sounding objects are visually captured, which can facilitate the spatial reasoning.</p>
+        <div class="col-md centered" style="padding:0.2rem; text-align:center; margin-bottom:8px">
+        <img src="{{ site.baseurl }}/static/img/experiments/visualize1.png" style="width: 100%;" class="img-responsive"/> 
+        </div>
+        <p class="text-muted" style="text-align:left"><b>Visualized spatio-temporal grounding results</b>. Based on the grounding results of our method, the sounding area and key timestamps are accordingly highlighted in spatial and temporal perspectives <b>(a-e)</b>, respectively, which indicates that our method can model the spatio-temporal association over different modalities well, facilitating the scene understanding and reasoning. Besides, the subfigure <b>(f)</b> shows one failure case predicted by our method, where the complex scenario with multiple sounding and silent objects makes it difficult to correlate individual objects with mixed sound, leading to a wrong answer for the given question.</p>
+      </div>
+    </div>
+
+
+
+    
+
+<!--     <div class="row justify-content-md-center text-center">
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="{{ site.baseurl }}/static/img/stats-figures/stat1.png" style="width: 100%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted" style="text-align:left"><b>Illustrations of our MUSIC-AVQA dataset statistics</b>. <b>(a-d)</b> statistical analysis of the videos and QA pairs. <b>(e)</b> Question formulas. <b>(f)</b> Distribution of question templates, where the dark color indicates the number of QA pairs generated from real videos while the light-colored area on the upper part of each bar means that from synthetic videos. <b>(g)</b> Distribution of first n-grams in questions. Our QA-pairs need <b>fine-grained scene understanding</b> and <b>spatio-temporal reasoning</b> over audio and visual modalities to be solved. For example, existential and location questions require spatial reasoning, and temporal questions require temporal reasoning. Best viewed in color.</p>
+    </div> -->
+      
+   
+    
+    <!-- <div class="row"> -->
+      <!-- <div class="col-md-12"> -->
+        <!-- <h4 class="subheading">Challenges/Leaderboard Details</h4>                    
+
+        <p class="text-muted">        
+        <b>Splits. </b> The dataset is split in train/validation/test sets, with a ratio of roughly 75/10/15. <br/>         
+        The action recognition, detection and anticipation challenges use all the splits. <br/>        
+        The unsupservised domain adaptation and action retrieval challenges use different splits as detailed below. <br/>        
+        
+        You can download all the necessary annotations <a href="https://github.com/epic-kitchens/epic-kitchens-100-annotations" target="_blank">here</a>. <br/>
+        You can find more details about the splits in <a href="https://arxiv.org/pdf/2006.13256.pdf" target="_blank">our paper</a>.
+        </p>
+        
+        <p class="text-muted">
+        <b>Evaluation. </b> All challenges are evaluated considering all segments in the Test split. 
+        The action recognition and anticipation challenges are additionally evaluated considering unseen participants and tail classes. These are automatically evaluated in the scripts and you do not need to do anything specific to report these.<br/>
+        <b>Unseen participants. </b> The validation and test sets contain participants that are not present in the train set. 
+        There are 2 unseen participants in the validation set, and another 3 participants in the test set. 
+        The corresponding action segments are 1,065 and 4,110 respectively. <br/>
+        <b>Tail classes. </b> These are the set of smallest classes whose instances account for 20&#37 of the total number of instances in 
+        training. A tail action class contains either a tail verb class or a tail noun class. 
+        <br/><br/>
+        </p> -->
+        
+        
+        
+        <!-- <section class="challenge" id="challenge-action-detection">
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="subheading">Action Detection</h5>
+              <p class="text-muted">
+                <b>Task. </b> 
+                Detect the start and the end of each action in an <i>untrimmed</i> video. Assign a (verb, noun) label to each 
+                detected segment. <br/>
+                <b>Training input. </b> A set of trimmed action segments, each annotated with a (verb, noun) label.  <br/>                
+                <b>Testing input. </b> A set of <i>untrimmed</i> videos. <u>Important:</u> You are not allowed to use the knowledge of trimmed segments in the test set when reporting for this challenge.<br/>
+                <b>Splits. </b> Train and validation for training, evaluated on the test split. <br/>
+                <b>Evaluation metrics. </b> Mean Average Precision (mAP) @ IOU 0.1 to 0.5.
+              </p>
+            </div>
+          </div>
+          
+          <div class="details row text-center">
+            <div class="col-md">
+              <a href="https://github.com/epic-kitchens/C2-Action-Detection">
+                <i class="text-center centered fas fa-4x fa-seedling"></i>
+              </a>
+              <br />
+              <p class="text-muted">
+                <a href="https://github.com/epic-kitchens/C2-Action-Detection">Get started</a>
+              </p>
+            </div>
+            <div class="col-md">
+              <a href="https://codalab.lisn.upsaclay.fr/competitions/707#learn_the_details-submission-format">
+                <i class="text-center centered fas fa-4x fa-info"></i>
+              </a>
+              <br />
+              <p class="text-muted">Learn about the 
+                <a href="https://codalab.lisn.upsaclay.fr/competitions/707#learn_the_details-submission-format">submission format details</a>
+              </p>
+            </div>
+            <div class="col-md">
+              <a href="https://codalab.lisn.upsaclay.fr/competitions/707#results">
+                <i class="text-center centered fas fa-4x fa-trophy"></i>
+              </a>
+              <p class="text-muted">Submit your results on 
+                <a href="https://codalab.lisn.upsaclay.fr/competitions/707#results">CodaLab website</a>
+              </p>
+            </div>
+         </div>
+         <figure class="text-muted">
+            <figcaption>Sample qualitative results from the challenge's baseline</figcaption>
+            <img src="{{ site.baseurl }}/static/img/challenges-epic-100/ad.png" style="width: 100%" class="img-responsive"/> 
+         </figure> 
+        </section> -->
+        
+
+        <!-- <section class="challenge" id="challenge-action-anticipation">
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="subheading">Action Anticipation</h5>
+              <p class="text-muted">
+                <b>Task. </b> 
+                Predict the (verb, noun) label of a future action observing a segment preceding its occurrence. <br/>
+                <b>Training input. </b> A set of trimmed action segments, each annotated with a (verb, noun) label. <br/>
+                <b>Testing input. </b> During testing you are allowed to observe a segment that <i>ends</i> at least one second before 
+                the start of the action you are testing on.<br/>                
+                <b>Splits. </b> Train and validation for training, evaluated on the test split. <br/>
+                <b>Evaluation metrics. </b> Top-5 recall averaged for all classes, as defined <a href="https://openaccess.thecvf.com/content_ECCVW_2018/papers/11133/Furnari_Leveraging_Uncertainty_to_Rethink_Loss_Functions_and_Evaluation_Measures_for_ECCVW_2018_paper.pdf" target="_blank">here</a>,
+                calculated for all segments as well as unseen participants and tail classes.
+                <br/>
+              </p>
+            </div>
+          </div>
+          
+          <div class="details row text-center">
+            <div class="col-md">
+              <a href="https://github.com/epic-kitchens/C3-Action-Anticipation">
+                <i class="text-center centered fas fa-4x fa-seedling"></i>
+              </a>
+              <br />
+              <p class="text-muted">
+                <a href="https://github.com/epic-kitchens/C3-Action-Anticipation">Get started</a>
+              </p>
+            </div>
+            <div class="col-md">
+              <a href="https://codalab.lisn.upsaclay.fr/competitions/702#learn_the_details-submission-format">
+                <i class="text-center centered fas fa-4x fa-info"></i>
+              </a>
+              <br />
+              <p class="text-muted">Learn about the 
+                <a href="https://codalab.lisn.upsaclay.fr/competitions/702#learn_the_details-submission-format">submission format details</a>
+              </p>
+            </div>
+            <div class="col-md">
+              <a href="https://codalab.lisn.upsaclay.fr/competitions/702#results">
+                <i class="text-center centered fas fa-4x fa-trophy"></i>
+              </a>
+              <p class="text-muted">Submit your results on 
+                <a href="https://codalab.lisn.upsaclay.fr/competitions/702#results">CodaLab website</a>
+              </p>
+            </div>
+         </div>
+         <figure class="text-muted">
+            <figcaption>Sample qualitative results from the challenge's baseline</figcaption>
+            <img src="{{ site.baseurl }}/static/img/challenges-epic-100/aa.png" style="width: 100%" class="img-responsive"/> 
+         </figure>
+        </section> -->
+        
+        <!-- <section class="challenge" id="challenge-domain-adaptation">
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="subheading">Unsupervised Domain Adaptation for Action Recognition</h5>
+              <p class="text-muted">
+                <b>Task. </b> Assign a (verb, noun) label to a trimmed segment, following the Unsupervised Domain Adaptation paradigm: 
+                a labelled source domain is used for training, and the model needs to adapt to an unlabelled target domain. <br/>
+                <b>Training input. </b> A set of trimmed action segments, each annotated with a (verb, noun) label.  <br/>                
+                <b>Testing input. </b> A set of trimmed unlabelled action segments. <br/>
+                <b>Splits. </b> Videos recorded in 2018 (EPIC-KITCHENS-55) constitute the source domain, 
+                while videos recorded for MUSIC-AVQA's extension constitute the unlabelled target domain. 
+                This challenge uses custom train/validation/test splits, which you can find 
+                <a href="https://github.com/epic-kitchens/epic-kitchens-100-annotations#unsupervised-domain-adaptation-challenge" target="_blank">here</a>. <br/> 
+                <b>Evaluation metrics. </b> Top-1/5 accuracy for verb, noun and action (verb+noun), on the target test set.
+              </p>
+            </div>
+          </div>
+          
+          <div class="details row text-center">
+            <div class="col-md">
+              <a href="https://github.com/epic-kitchens/C4-UDA-for-Action-Recognition">
+                <i class="text-center centered fas fa-4x fa-seedling"></i>
+              </a>
+              <br />
+              <p class="text-muted">
+                <a href="https://github.com/epic-kitchens/C4-UDA-for-Action-Recognition">Get started</a>
+              </p>
+            </div>
+            <div class="col-md">
+              <a href="https://codalab.lisn.upsaclay.fr/competitions/1241#learn_the_details-submission-format">
+                <i class="text-center centered fas fa-4x fa-info"></i>
+              </a>
+              <br />
+              <p class="text-muted">Learn about the 
+                <a href="https://codalab.lisn.upsaclay.fr/competitions/1241#learn_the_details-submission-format">submission format details</a>
+              </p>
+            </div>
+            <div class="col-md">
+              <a href="https://codalab.lisn.upsaclay.fr/competitions/1241#results">
+                <i class="text-center centered fas fa-4x fa-trophy"></i>
+              </a>
+              <p class="text-muted">Submit your results on 
+                <a href="https://codalab.lisn.upsaclay.fr/competitions/1241#results">CodaLab website</a>
+              </p>
+            </div>
+         </div>
+         <figure class="text-muted">
+            <figcaption>Sample qualitative results from the challenge's baseline</figcaption>
+            <img src="{{ site.baseurl }}/static/img/challenges-epic-100/uda.png" style="width: 100%" class="img-responsive"/> 
+         </figure>
+        </section>-->
+
+
+        <!-- <section class="challenge" id="challenge-action-retrieval">
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="subheading">Multi-Instance Retrieval</h5>
+              <p class="text-muted">
+                <b>Tasks. </b> <i>Video to text</i>: given a query video segment, rank captions such that those with a higher rank are 
+                more semantically relevant to the action in the query video segment. 
+                <i>Text to video:</i> given a query caption, rank video segments such that those with a higher rank are more semantically relevant 
+                to the query caption. <br/>                                
+                <b>Training input. </b> A set of trimmed action segments, each annotated with a caption. 
+                Captions correspond to the narration in English from which the action segment was obtained. <br/>                
+                <b>Testing input. </b> A set of trimmed action segments with captions. Important: You are not allowed to use the known correspondence in the Test set <br/>
+                <b>Splits. </b> This challenge has its own custom splits, available <a href="https://github.com/epic-kitchens/epic-kitchens-100-annotations/tree/master/retrieval_annotations">here</a>. <br/>                
+                <b>Evaluation metrics. </b> normalised Discounted Cumulative Gain (nDCG) and Mean Average Precision (mAP). 
+                You can find more details in <a href="https://arxiv.org/pdf/2006.13256.pdf" target="_blank">our paper</a>. 
+              </p>
+            </div>
+          </div>
+          
+          <div class="details row text-center">
+            <div class="col-md">
+              <a href="https://github.com/epic-kitchens/C5-Multi-Instance-Retrieval">
+                <i class="text-center centered fas fa-4x fa-seedling"></i>
+              </a>
+              <br />
+              <p class="text-muted">
+                <a href="https://github.com/epic-kitchens/C5-Multi-Instance-Retrieval">Get started</a>
+              </p>
+            </div>
+            <div class="col-md">
+              <a href="https://codalab.lisn.upsaclay.fr/competitions/617#learn_the_details-submission-format">
+                <i class="text-center centered fas fa-4x fa-info"></i>
+              </a>
+              <br />
+              <p class="text-muted">Learn about the 
+                <a href="https://codalab.lisn.upsaclay.fr/competitions/617#learn_the_details-submission-format">submission format details</a>
+              </p>
+            </div>
+            <div class="col-md">
+              <a href="https://codalab.lisn.upsaclay.fr/competitions/617#results">
+                <i class="text-center centered fas fa-4x fa-trophy"></i>
+              </a>
+              <p class="text-muted">Submit your results on 
+                <a href="https://codalab.lisn.upsaclay.fr/competitions/617#results">CodaLab website</a>
+              </p>
+            </div>
+         </div>
+         <figure class="text-muted">
+            <figcaption>Sample qualitative results from the challenge's baseline</figcaption>
+            <img src="{{ site.baseurl }}/static/img/challenges-epic-100/aret.png" style="width: 100%" class="img-responsive"/> 
+         </figure>
+          
+        </section> -->
+        
+      <!-- </div>
+    </div> -->
+    
+  </div>
+</section> 
+
+<!-- Team -->
+<section class="bg-light" id="team">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="section-heading text-uppercase">The Team</h2>
+        <div class="text-muted">
+          <p> We are a group of researchers working in computer vision
+            from the <a href="http://ai.ruc.edu.cn/">Renmin University of China</a> and <a href="https://www.cs.rochester.edu/">University of Rochester</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <a href="http://ai.ruc.edu.cn/">
+          <img src="{{ site.baseurl }}/static/img/universities/ruc.png" alt="" style="width:80%;  margin-top:10px; margin-bottom:15px;">
+        </a>
+      </div>
+      <div class="col-md-6">
+        <a href="https://www.cs.rochester.edu/">
+          <img src="{{ site.baseurl }}/static/img/universities/rochester.png" alt="" style="width:80%;  margin-top:29px; margin-bottom:15px;">
+        </a>
+      </div>
+    </div>
+    <hr>
+
+
+
+<!--<div class="row">
+      <div class="col-md-6">
+        <div class="team-member">
+          <a href="http://dimadamen.github.io">
+            <img class="mx-auto rounded-circle" src="{{site.baseurl}}/static/img/profile/dd-min.jpg"/>
+
+            <h4>Guangyao Li</h4></a>
+            <h5>Renmin University of China</h5>
+            <h6 class="text-muted">University of Bristol, United Kingom</h6>
+        </div>
+      </div>
+        
+      <div class="col-md-6">
+        <div class="team-member">
+          <a href="http://www.dmi.unict.it/farinella/">
+            <img class="mx-auto rounded-circle" src="{{site.baseurl}}/static/img/profile/gmf-min.jpg" />
+
+            <h4>Giovanni Maria Farinella</h4></a>
+          <h5>Co-Investigator</h5>
+          <h6 class="text-muted">University of Catania, Italy</h6>
+        </div>
+      </div>
+    </div>
+-->
+    
+
+    <!-- <center> -->
+    <div class="row" style="text-align:center">  
+
+      <div class="col-md-3"> <!--Guangyao Li-->
+        <div class="team-member">
+          <a href="https://ayameyao.github.io/">
+            <img class="mx-auto rounded-circle" src="{{site.baseurl}}/static/img/profile/guangyaoli.jpg" />
+            <h4>Guangyao Li</h4></a>
+            <h5>PhD Candidate</h5>
+            <h5>(Sep 2020 - )</h5>
+            <h6 class="text-muted">Renmin University of China</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3"> <!--Yake Wei-->
+        <div class="team-member">
+          <a href="https://echo0409.github.io/">
+            <img class="mx-auto rounded-circle" src="{{site.baseurl}}/static/img/profile/yakewei.jpg" />
+            <h4>Yake Wei</h4></a>
+            <h5>PhD Candidate</h5>
+            <h5>(Sep 2021 - )</h5>
+            <h6 class="text-muted">Renmin University of China</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3"><!--Yapeng Tian-->
+        <div class="team-member">
+          <a href="https://yapengtian.org/">
+            <img class="mx-auto rounded-circle" src="{{site.baseurl}}/static/img/profile/yapengtian.jpeg" />
+            <h4>Yapeng Tian</h4></a>
+            <h5>PhD Candidate</h5>
+            <h5>(Sep 2017 - )</h5>
+            <h6 class="text-muted">University of Rochester</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3"> <!--Chenliang Xu-->
+        <div class="team-member">
+          <a href="https://www.cs.rochester.edu/~cxu22/">
+            <img class="mx-auto rounded-circle" src="{{site.baseurl}}/static/img/profile/chengliangxu.jpg" />
+            <h4>Chenliang Xu</h4></a>
+            <h5>Assistant Professor</h5>
+            <h6 class="text-muted">University of Rochester</h6>
+        </div>
+      </div>
+
+    </div>
+  <!-- </center> -->
+
+    <center>
+    <div class="row">
+      <div class="col-md-3"> <!--Ji-Rong Wen -->
+        <div class="team-member">
+            <a href="http://ai.ruc.edu.cn/szdw/68136712b556477db57c8ae66752768f.htm">
+            <img class="mx-auto rounded-circle" src="{{site.baseurl}}/static/img/profile/jirongwen.jpg" />
+
+            <h4>Ji-Rong Wen</h4></a>
+            <h5>Professor</h5>
+            <h6 class="text-muted">Renmin University of China</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3"> <!--Di Hu-->
+        <div class="team-member">
+            <a href="https://dtaoo.github.io/index.html">
+            <img class="mx-auto rounded-circle" src="{{site.baseurl}}/static/img/profile/dihu.png" />
+            <h4>Di Hu</h4></a>
+            <h5>Assistant Professor</h5>
+            <h6 class="text-muted">Renmin University of China</h6>
+        </div>
+      </div>
+
+    </div>
+  </center>
+
+
+    <div class="container">
+      <div class="row">
+
+<!--         <div class="col-lg-12">
+          <h2 class="section-heading text-uppercase">Research Funding</h2>
+          <div class="text-muted">
+            <p> The work on MUSIC-AVQA was supported by the following research grants</p>
+              <ul class="text-muted">
+                <li>Intelligent Social Governance Platform, Major Innovation & Planning Interdisciplinary Platform for the “Double-First Class” Initiative, Renmin University of China.</li>
+                <li>Beijing Outstanding Young Scientist Program (NO.BJJWZYJH012019100020098)</li>
+                <li>Research Funds of Renmin University of China (NO.21XNLG17)</li>
+                <li>National Natural Science Foundation of China (NO.62106272)</li>
+                <li>2021 Tencent AI Lab Rhino-Bird Focused Research Program (No.JR202141)</li>
+                <li>Young Elite Scientists Sponsorship Program by CAST</li>
+                <li>Large-Scale Pre-Training Program of Beijing Academy of Artificial Intelligence (BAAI)</li>
+              </ul>
+          </div>
+        </div> -->
+
+        <div class="col-lg-12">
+          <h2 class="section-heading text-uppercase">Acknowledgement</h2>
+          <div class="text-muted">
+              <ul class="text-muted">
+                <li>This research was supported by Public Computing Cloud, Renmin University of China.</li>
+                <li>This web-page design inspired by EPIC official website.</li>
+              </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</section>
+
+
+<!--<section class="bg-light" id="results">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="section-heading text-uppercase">Results - 2021 Challenges (June 2021)</h2>
+        <div class="text-muted">
+            <div class="row">
+      <div class="col-md-12">
+        <h4 class="subheading">EPIC-Kitchens Challenges @CVPR2021, Virtual CVPR</h4>
+        <div class="row">
+           <div class="col-md-3">
+                Jan 1, 2021
+            </div>
+            <div class="col-md-9">
+                EPIC-Kitchens Challenges 2020 Launched!
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                June 1, 2021
+            </div>
+            <div class="col-md-9">
+                Server Submission Deadline at 23:59:59 GMT
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-md-3">
+                Jun 4, 2020
+            </div>
+            <div class="col-md-9">
+                Deadline for Submission of Technical Reports
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-md-3">
+                June 20, 2020
+            </div>
+            <div class="col-md-9">
+                Results announced at <a href="https://eyewear-computing.org/EPIC_CVPR21/">EPIC@CVPR2021</a> Workshop (<a href="https://youtu.be/FSn8yCbpcc4">watch session recording here</a>)
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-md-3">
+                July 6, 2021
+            </div>
+            <div class="col-md-9">
+                Technical report for all submissions to the 2021 challenges is now <a href="Reports/EPIC-KITCHENS-Challenges-2021-Report.pdf">available here</a> [Reference <a href="./Reports/2021-bibtex.txt">Bibtex</a>].
+            </div>
+        </div>  
+      </div>
+    </div>
+            
+        <h2 class="section-heading text-uppercase">2021 Challenge Winners</h2> 
+            
+                  <div class="col-md">
+                    <img src="{{site.baseurl}}/static/results2021/winnersList-2021.png" width=100%/>
+                  </div>
+                   <div class="col-md">
+                    <img src="{{site.baseurl}}/static/results2021/winners-2021.png" width=100%/>
+                  </div>
+            
+          <h2 class="section-heading text-uppercase">Action Recognition Challenge - 2021</h2> 
+            
+                  <div class="col-md">
+                    <img src="{{site.baseurl}}/static/results2021/AR.png" width=100%/>
+                  </div>
+           <h2 class="section-heading text-uppercase">Action Anticipation Challenge - 2021</h2> 
+            
+                  <div class="col-md">
+                    <img src="{{site.baseurl}}/static/results2021/AN.png" width=100%/>
+                  </div>
+          <h2 class="section-heading text-uppercase">Action Detection Challenge - 2021</h2> 
+            
+                  <div class="col-md">
+                    <img src="{{site.baseurl}}/static/results2021/AD.png" width=100%/>
+                  </div>
+             <h2 class="section-heading text-uppercase">Unsupervised Domain Adaptation for Action Recognition Challenge - 2021</h2> 
+            
+                  <div class="col-md">
+                    <img src="{{site.baseurl}}/static/results2021/UDA.png" width=100%/>
+                  </div>
+            
+             <h2 class="section-heading text-uppercase">Multi-Instance Retrieval Challenge - 2021</h2> 
+            
+                  <div class="col-md">
+                    <img src="{{site.baseurl}}/static/results2021/MIR.png" width=100%/>
+                  </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</section>-->
+
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Dataset",
+  "name":"MUSIC-AVQA dataset",
+  "description":"First-person (egocentric) video dataset; multi-faceted non-scripted recordings in the wearers' homes, capturing all daily activities in the kitchen over multiple days. Annotations are collected using a novel live audio commentary approach.",
+  "url":"https://github.com/epic-kitchens/annotations",
+  "sameAs":"https://data.bris.ac.uk/data/dataset/3h91syskeag572hl6tvuovwv4d",
+  "citation":"Damen, Dima et al. 'Scaling Egocentric Vision: The EPIC-KITCHENS Dataset', European Conference on Computer Vision, 2018",
+  "identifier": "10.5523/bris.3h91syskeag572hl6tvuovwv4d",
+  "keywords":[
+     "Egocentric vision",
+     "Human actions",
+     "Object interactions",
+     "actions",
+     "video",
+     "kitchens",
+     "cooking",
+     "dataset",
+     "epic kitchens",
+     "epic",
+     "eccv",
+     "2022"
+  ],
+  "creator":{
+     "@type":"Organization",
+     "url": "https://epic-kitchens.github.io/",
+     "name":"EPIC Team",
+     "contactPoint":{
+        "@type":"ContactPoint",
+        "contactType": "technical support",
+        "email":"uob-epic-kitchens@bristol.ac.uk",
+        "url":"https://github.com/epic-kitchens/annotations/issues"
+     }
+  },
+  "distribution":[
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"video/mp4",
+        "contentUrl":"https://data.bris.ac.uk/data/dataset/3h91syskeag572hl6tvuovwv4d"
+     },
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"image/jpeg",
+        "contentUrl":"https://data.bris.ac.uk/data/dataset/3h91syskeag572hl6tvuovwv4d"
+     },
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"text/csv",
+        "contentUrl":"https://github.com/epic-kitchens/annotations"
+     },
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"application/octet-stream",
+        "contentUrl":"https://github.com/epic-kitchens/annotations"
+     }
+  ],
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/"
+}
+</script>
+

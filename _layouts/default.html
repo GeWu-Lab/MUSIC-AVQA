@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ page.title }}</title>
+
+    <link href="{{site.baseurl}}/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Kaushan+Script|Droid+Serif:400,700,400italic,700italic|Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="{{site.baseurl}}/static/css/agency.css" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41410283-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-41410283-2');
+    </script>
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img style="width:10em;" src="{{ site.baseurl }}/static/img/logo/epic-kitchens-logo-red-side.svg" alt="Logo"></a> -->
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img style="width:10em;" src="{{ site.baseurl }}/static/img/logo/music-avqa-logo-2.png" alt="Logo"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#stats">Dataset</a>
+            </li>
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#downloads">Downloads</a>
+            </li>
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#challenges">Method</a>
+            </li>
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+
+            <div class="row">
+              <div class="col-lg-12">
+                <h3 class="section-heading text-uppercase" style="text-align:center;">Learning to Answer Questions in Dynamic Audio-Visual Scenarios</h3>
+                <h3 class="section-heading text-uppercase" style="text-align:center;">[MUSIC-AVQA Dataset, CVPR2022]</h3>
+                <h5 class="text-muted" style="text-align:center;">
+                  <ul style="color:#f8f9fa">
+                      Guangyao Li<sup>1,&dagger;</sup>, 
+                      Yake Wei<sup>1,&dagger;</sup>, 
+                      Yapeng Tian<sup>2,&dagger;</sup>, 
+                      Chenliang Xu<sup>2</sup>, 
+                      Ji-Rong Wen<sup>1</sup>, 
+                      Di Hu<sup>1,*</sup><br>
+                      <sup>1</sup>Renmin University of China, 
+                      <sup>2</sup>University of Rochester            
+                  </ul>
+                </h5>
+                <p class="text-muted" style="text-align:center; color:#00F">
+                  <a href="{{ site.baseurl }}/static/files/st-avqa.pdf" style="color:#ffc107">[Paper]&nbsp;
+                  <a href="{{ site.baseurl }}/static/files/st-avqa-supplementary.pdf" style="color:#ffc107">[Supplementary]</a>&nbsp;
+                  <a href="{{ site.baseurl }}/static/files/st-avqa-poster.pdf" style="color:#ffc107">[Poster]</a>&nbsp;
+                  <a href="https://www.youtube.com/watch?v=jn_4iabJcZw" style="color:#ffc107">[Video-YouTube]</a>&nbsp;
+                  <a href="https://www.bilibili.com/video/BV1Br4y1q7YN/" style="color:#ffc107">[Video-Bilibili]</a>&nbsp;
+                  <a href="https://github.com/GeWu-Lab/MUSIC-AVQA" style="color:#ffc107">[Code]</a>
+                </p>
+              </div>
+            </div>
+            <hr />
+
+        </div>
+      </div>
+    </header>
+
+
+
+
+    {{content}}
+
+<!--     <div style="position: fixed; bottom: 30px; right:10px;">
+    <a href=""> <img src="{{ site.baseurl }}/static/img/logo/cn.png" /> </a>
+    </div> -->
+
+    
+    <!-- Footer -->
+    <footer style="background-color:#373435ff;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img alt="Creative Commons License" style="border-width:1px;float:left;margin-right:15px;margin-bottom:0px;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png"/>
+            <span class="copyright" style="color:#eee;">Copyright &copy; Guangyao Li</span>
+          </div>
+          <div class="col-md-8">
+            <p style="color:#eee;">For any questions, email us at
+              <a href="mailto:guangyaoli@ruc.edu.cn"> guangyaoli@ruc.edu.cn</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{site.baseurl}}/static/vendor/jquery/jquery.min.js"></script>
+    <script src="{{site.baseurl}}/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{{site.baseurl}}/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="{{site.baseurl}}/static/js/agency.min.js"></script>
+
+  </body>
+</html>
