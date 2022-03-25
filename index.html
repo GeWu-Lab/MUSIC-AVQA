@@ -41,9 +41,9 @@ layout: default
           </ul>
         </h5>
         <p class="text-muted" style="text-align:center; color:#00F">
-          <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">[Paper]&nbsp;
-            <a href="{{ site.baseurl }}/static/files/st-avqa-supplementary.pdf">[Supplementary]</a>&nbsp;
-            <a href="{{ site.baseurl }}/static/files/st-avqa-poster.pdf">[Poster]</a>&nbsp;
+          <a href="{{ site.baseurl }}/static/files/MUSIC-AVQA.pdf">[Paper]&nbsp;
+            <a href="{{ site.baseurl }}/static/files/MUSIC-AVQA-supp.pdf">[Supplementary]</a>&nbsp;
+            <a href="{{ site.baseurl }}/static/files/MUSIC-AVQA-poster.pdf">[Poster]</a>&nbsp;
             <a href="https://www.youtube.com/watch?v=jn_4iabJcZw">[Video]</a>&nbsp;
             <a href="https://www.bilibili.com/video/BV1Br4y1q7YN/">[Video]</a>&nbsp;
             <a href="https://github.com/">[Code]</a>
@@ -61,7 +61,7 @@ layout: default
         <h5 class="text-muted" style="text-align:left;">
           <ul>
               <li>Stay tuned for more news.</li>
-              <li>28 Mar 2022: Camera-ready version has been released <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">here</a>!</li>
+              <li>28 Mar 2022: Camera-ready version has been released <a href="{{ site.baseurl }}/static/files/MUSIC-AVQA.pdf">here</a>!</li>
               <li>22 Mar 2022: The MUSIC-AVQA dataset has been released <a href="https://github.com/">here</a>!</li>
               <li>18 Mar 2022: Code has been released <a href="https://github.com/GeWu-Lab/MUSIC-AVQA">here</a>!</li>
               <li>08 Mar 2022: Watch the project's video demonstration on 
@@ -435,12 +435,12 @@ layout: default
       <div class="col-md-12"> 
         
         <h4 class="section-subheading" id="downloadFiles">Data and Download</h4><hr/>
-        <p>Original videos (trimmed): Available at <a href="https://www.baidu.com">Baidu Drive</a>.</p>
-        <p>Features (VGGish, ResNet18 and R(2+1)D): Available at <a href="https://www.baidu.com">Baidu Drive</a>.
+        <p>Original videos frames (1fps): Available at <a href="https://www.baidu.com">Baidu Drive</a>.</p>
+        <p>Features (VGGish, ResNet18 and R(2+1)D): Available at Baidu Drive (password: cvpr)</a>.
           <ul>
-            <li>VGGish feature shape: [T, 128]&nbsp;&nbsp;<a href="http://www.google.com">Download</a></li>
-            <li>ResNet18 feature shape: [T, 512]&nbsp;&nbsp;<a href="http://www.google.com">Download</a></li></li>
-            <li>R(2+1)D feature shape: [T, 512]&nbsp;&nbsp;<a href="http://www.google.com">Download</a></li></li>
+            <li>VGGish feature shape: [T, 128]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/1TWzuXVPncuGFIv37q5rtKg">Download</a></li>
+            <li>ResNet18 feature shape: [T, 512]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/1o-QSe0HJymeXAegVRA3bPw">Download</a></li></li>
+            <li>R(2+1)D feature shape: [T, 512]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/13Ml-Je3Mmu46OSuMfYc6vQ">Download</a></li></li>
           </ul>
         </p>
         <p> Annotations (QA pairs, etc.): Available for download at <a href="https://github.com/GeWu-Lab/MUSIC-AVQA/tree/main/data/json">GitHub</a>.</p>          
@@ -455,7 +455,7 @@ layout: default
           <ul class="text-muted">
             <li>"type": the question's modality information and type.</li>
             <li>"question_id": the unique identifier to QA pairs. .</li>
-            <li>"video_id", "question_content", "templ_values" and "anser": The contents of these keywords together construct the Q-A pairs corresponding to the video with id "video_id". The form of &lt;<i>FL</i>&gt; is the template word in the question, and its specific content is the information contained in "templ_values". See the <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">paper</a> for a more specific question template description</li>
+            <li>"video_id", "question_content", "templ_values" and "anser": The contents of these keywords together construct the Q-A pairs corresponding to the video with id "video_id". The form of &lt;<i>FL</i>&gt; is the template word in the question, and its specific content is the information contained in "templ_values". See the <a href="{{ site.baseurl }}/static/files/MUSIC-AVQA.pdf">paper</a> for a more specific question template description</li>
             <li>"question_deleted": The check code during data annotation process and it will not be used in the dataloader.</li>
           </ul>
         </p>
@@ -482,7 +482,7 @@ layout: default
 
         <br/>
         <h4 class="section-subheading">Publication(s)</h4>
-        <p>If you find our work useful in your research, please cite <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">our CVPR 2022 paper</a>.
+        <p>If you find our work useful in your research, please cite <a href="{{ site.baseurl }}/static/files/MUSIC-AVQA.pdf">our CVPR 2022 paper</a>.
         </p>
         <pre class="bibtex" style="text-align:left; margin-left:8px">
         <code>
@@ -543,7 +543,7 @@ layout: default
     <div class="row">
       <div class="col-md-12">
         <p class="text-muted" style="text-align:left">
-          To solve the AVQA problem, we propose a spatio-temporal grounding model to achieve scene understanding and reasoning over audio and visual modalities. And to benchmark different models, we use answer prediction accuracy as the evaluation metric and evaluate performance of different models on answering different types of audio, visual, and audio-visual questions. <b>More details in the <a href="{{ site.baseurl }}/static/files/st-avqa.pdf">[Paper]</a> and <a href="{{ site.baseurl }}/static/files/st-avqa-supplementary.pdf">[Supplementary]</a></b>.<br/>  
+          To solve the AVQA problem, we propose a spatio-temporal grounding model to achieve scene understanding and reasoning over audio and visual modalities. And to benchmark different models, we use answer prediction accuracy as the evaluation metric and evaluate performance of different models on answering different types of audio, visual, and audio-visual questions. <b>More details in the <a href="{{ site.baseurl }}/static/files/MUSIC-AVQA.pdf">[Paper]</a> and <a href="{{ site.baseurl }}/static/files/MUSIC-AVQA-supp.pdf">[Supplementary]</a></b>.<br/>  
         </p> 
       </div>
     </div>
