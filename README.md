@@ -72,23 +72,25 @@ numpy
    **Annotations (QA pairs, etc.)**
 
    - Available for download at [here](https://github.com/GeWu-Lab/MUSIC-AVQA_CVPR2022/tree/main/data/json)
-   - The annotation files are stored in JSON format. Each annotation file contains seven different keyword. And more detail see in [Project Homepage](https://ayameyao.github.io/MUSIC-AVQA/)
+   - The annotation files are stored in JSON format. Each annotation file contains seven different keyword. And more detail see in [Project Homepage](https://gewu-lab.github.io/MUSIC-AVQA/)
 
    **Features**
 
    - We use [VGGish](https://github.com/tensorflow/models/tree/master/research/audioset/vggish), [ResNet18](https://pytorch.org/docs/stable/torchvision/models.html), and [ResNet (2+1)D](https://pytorch.org/docs/stable/torchvision/models.html) to extract audio, 2D frame-level, and 3D snippet-level features, respectively. 
-
-   - The audio and visual features of videos in the MUSIC-AVQA dataset can be download from this [Google Drive]() or [Baidu Drive](). 
-
+   - The audio and visual features of videos in the MUSIC-AVQA dataset can be download from Baidu Drive (<b>password: cvpr</b>): 
+     - VGGish feature shape: [T, 128]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/1TWzuXVPncuGFIv37q5rtKg">Download</a> (112.7M)
+     - ResNet18 feature shape: [T, 512]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/1o-QSe0HJymeXAegVRA3bPw">Download</a>  (972.6M)
+     - R(2+1)D feature shape: [T, 512]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/13Ml-Je3Mmu46OSuMfYc6vQ">Download</a>  (973.9M)
+   
    - The features are in the `./data/feats` folder.
-   - 14x14 features, too large to share ... but we can extract from raw videos.
+   - 14x14 features, too large to share ... but we can extract from raw video frames.
 
-   **Download videos**
+   **Download videos frames**
 
-   - Raw videos (trimmed): Available at [Google Drive (50GB zipped)](http://www.google.com/) or [Baidu Drive (50GB zipped)](https://www.baidu.com/).
+   - Raw video frames (1fps): Available at Available at <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (14.84G) (<b>password: cvpr</b>).
 
    - Download raw videos in the MUSIC-AVQA dataset. The downloaded videos will be in the `/data/video` folder. 
-
+   
    - Pandas and ffmpeg libraries are required.
 
 
@@ -108,7 +110,7 @@ numpy
 
 4. **Feature extraction** 
 
-   Audio feature. `TensorFlow1.4` and `VGGish pretrained on AudioSet` is required. Feature file also can be found from [here](). 
+   Audio feature. `TensorFlow1.4` and `VGGish pretrained on AudioSet` is required. Feature file also can be found from [here](https://pan.baidu.com/s/1TWzuXVPncuGFIv37q5rtKg) (<b>password: cvpr</b>). 
 
    ```python
    python feat_script/extract_audio_feat/audio_feature_extractor.py
@@ -204,7 +206,6 @@ If you find this work useful, please consider citing it.
   author	= {Guangyao li, Yake Wei, Yapeng Tian, Chenliang Xu, Ji-Rong Wen, Di Hu},
   journal	= {IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
   year	= {2022},
-  Url	= {https://doi.org/10.1007/s11263-021-01531-2}
 }
 </code></pre>
 
