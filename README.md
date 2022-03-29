@@ -27,7 +27,7 @@ We focus on **audio-visual question answering (AVQA) task, which aims to answer 
 
 ## MUSIC-AVQA Dataset
 
-The large-scale MUSIC-AVQA dataset of musical performance, which contains **45,867 question-answer pairs**, distributed in **9,290 videos** for over 150 hours. All QA pairs types are divided into **3 modal scenarios**, which contain **9 question types** and **33 question templates**. Finally, as an open-ended problem of our AVQA tasks, all 42 kinds of answers constitute a set for selection. 
+The large-scale MUSIC-AVQA dataset of musical performance, which contains **45,867 question-answer pairs**, distributed in **9,288 videos** for over 150 hours. All QA pairs types are divided into **3 modal scenarios**, which contain **9 question types** and **33 question templates**. Finally, as an open-ended problem of our AVQA tasks, all 42 kinds of answers constitute a set for selection. 
 
 - **QA examples**
 
@@ -87,11 +87,13 @@ numpy
 
    **Download videos frames**
 
-   - Raw video frames (1fps): Available at Available at <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (14.84G) (<b>password: cvpr</b>).
+   - Raw videos: Availabel at : <a href="https://pan.baidu.com/s/1yVPfOXyDesHdUZFHK3tYog">Baidu Drive</a> (36.67GB) (<b>password: cvpr</b>).
 
+   - Raw video frames (1fps): Available at <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (14.84GB) (<b>password: cvpr</b>).
+   
    - Download raw videos in the MUSIC-AVQA dataset. The downloaded videos will be in the `/data/video` folder. 
    
-   - Pandas and ffmpeg libraries are required.
+   - Pandas and `ffmpeg` libraries are required.
 
 
 3. **Data pre-processing**
@@ -150,22 +152,34 @@ numpy
 
 6. **Our Audio-Visual Spatial-Temporal Model**
 
-   Audio-Visual grounding generation
+   We provide trained models and you can quickly test the results. Test results may vary slightly on different machines.
 
+   ```python
+   python net_grd_avst/main_avst.py --mode train \
+   	--audio_dir = "path to your audio features"
+   	--video_res14x14_dir = "path to your visual res14x14 features"
+   ```
+
+   Audio-Visual grounding generation
+   
    ```python
    python grounding_gen/main_grd_gen.py
    ```
 
    Training
-
+   
    ```python
-   python net_ours_avst/main_ours_avst.py --mode train
+   python net_grd_avst/main_avst.py --mode train \
+   	--audio_dir = "path to your audio features"
+   	--video_res14x14_dir = "path to your visual res14x14 features"
    ```
-
+   
    Testing
-
+   
    ```python
-   python net_ours_avst/main_ours_avst.py --mode test
+   python net_grd_avst/main_avst.py --mode test \
+   	--audio_dir = "path to your audio features"
+   	--video_res14x14_dir = "path to your visual res14x14 features"
    ```
 
 
