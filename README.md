@@ -4,7 +4,7 @@
 
 PyTorch code accompanies our CVPR 2022 paper:
 
-**Learning to Answer Questions in Dynamic Audio-Visual Scenarios**
+**Learning to Answer Questions in Dynamic Audio-Visual Scenarios (<font color="red">Oral Presentation</font>)**
 
 [Guangyao Li](https://ayameyao.github.io/), [Yake Wei](https://echo0409.github.io/), [Yapeng Tian](https://yapengtian.org/), [Chenliang Xu](https://www.cs.rochester.edu/~cxu22/), [Ji-Rong Wen](http://ai.ruc.edu.cn/szdw/68136712b556477db57c8ae66752768f.htm) and [Di Hu](https://dtaoo.github.io/index.html)
 

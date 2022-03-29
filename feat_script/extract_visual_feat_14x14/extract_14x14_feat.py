@@ -1,4 +1,5 @@
 import sys 
+# path to MUSIC-AVQA_CVPR2022
 sys.path.append("/home/guangyao_li/projects/music_avqa/") 
 import shutil
 import subprocess
