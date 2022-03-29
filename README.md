@@ -93,7 +93,7 @@ numpy
    
    - Download raw videos in the MUSIC-AVQA dataset. The downloaded videos will be in the `/data/video` folder. 
    
-   - Pandas and `ffmpeg` libraries are required.
+   - `Pandas` and `ffmpeg` libraries are required.
 
 
 3. **Data pre-processing**
