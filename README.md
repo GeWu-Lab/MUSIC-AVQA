@@ -91,7 +91,7 @@ numpy
      - <a href="https://pan.baidu.com/s/1yVPfOXyDesHdUZFHK3tYog">Real videos</a> (36.67GB)
      - <a href="https://pan.baidu.com/s/1YPETsGnm0aJxmuRtJ2sGkg">Synthetic videos</a> (11.59GB)
        
-       <b>Note</b>: Please move all downloaded videos to a folder, for example, create a new folder named MUSIC-AVQA-Videos, which contains 9,288 real videos and synthetic videos.
+   <b>Note</b>: Please move all downloaded videos to a folder, for example, create a new folder named MUSIC-AVQA-Videos, which contains 9,288 real videos and synthetic videos.
    
    - Raw video frames (1fps): Available at <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (14.84GB) (<b>password: cvpr</b>).
    
