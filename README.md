@@ -91,8 +91,9 @@ numpy
      - <a href="https://pan.baidu.com/s/1yVPfOXyDesHdUZFHK3tYog">Real videos</a> (36.67GB)
      - <a href="https://pan.baidu.com/s/1YPETsGnm0aJxmuRtJ2sGkg">Synthetic videos</a> (11.59GB)
        
+     
      <b>Note</b>: Please move all downloaded videos to a folder, for example, create a new folder named MUSIC-AVQA-Videos, which contains 9,288 real videos and synthetic videos.
-   
+     
    - Raw video frames (1fps): Available at <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (14.84GB) (<b>password: cvpr</b>).
    
    - Download raw videos in the MUSIC-AVQA dataset. The downloaded videos will be in the `/data/video` folder. 
@@ -214,6 +215,10 @@ numpy
 
 ## Notice
 We found some minor issues in dataset annotations, which are now fixed and placed in the 'json_update' folder. The experimental results based on the updated data are as follows:
+
+<div  align="center">    
+<img src="figs/exp3.png" width = "100%" />
+</div>
 
 
 
