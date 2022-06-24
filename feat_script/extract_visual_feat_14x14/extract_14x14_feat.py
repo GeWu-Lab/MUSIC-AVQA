@@ -75,7 +75,7 @@ def extract_feats(params, model, load_image_fn):
         samples = np.round(np.linspace(0, len(image_list) - 1, len(image_list)))
         
         image_list = [image_list[int(sample)] for sample in samples]
-        image_list=image_list[::18]
+        image_list=image_list[::1]  # 1-fps
         for img in image_list:
             frame_tensor_info = load_frame_info(img)
             select_img.append(frame_tensor_info.cpu().numpy())
