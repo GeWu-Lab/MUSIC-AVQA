@@ -67,81 +67,90 @@ numpy
    https://github.com/GeWu-Lab/MUSIC-AVQA_CVPR2022.git
    ```
 
+   
+
 2. **Download data**
 
-   **Annotations (QA pairs, etc.)**
+   **Raw videos**
 
+   - [Google Drive](https://drive.google.com/drive/folders/1WAryZZE0srLIZG8VHl22uZ3tpbGHtsrQ?usp=sharing)
+   
+   - Baidu Drive (**password: cvpr**)
+   
+     - [Real videos](https://pan.baidu.com/s/1yVPfOXyDesHdUZFHK3tYog#list/path=%2F) (36.67GB)
+   
+     - [Synthetic videos](https://pan.baidu.com/s/1b7HQbMdcfaWjsHdWiLWO2Q#list/path=%2F) (11.59GB)
+   
+   - Note
+     - Please move all downloaded videos to a new folder, for example, create a new folder named MUSIC-AVQA-Videos, which contains 9,288 videos. eg., the downloaded videos will be in the `/data/video` folder. 
+   
+   **Annotations (QA pairs, etc.)**
+   
    - Available for download at [here](https://github.com/GeWu-Lab/MUSIC-AVQA_CVPR2022/tree/main/data/json)
    - The annotation files are stored in JSON format. Each annotation file contains seven different keyword. And more detail see in [Project Homepage](https://gewu-lab.github.io/MUSIC-AVQA/)
 
-   **Features**
-
-   - We use [VGGish](https://github.com/tensorflow/models/tree/master/research/audioset/vggish), [ResNet18](https://pytorch.org/docs/stable/torchvision/models.html), and [ResNet (2+1)D](https://pytorch.org/docs/stable/torchvision/models.html) to extract audio, 2D frame-level, and 3D snippet-level features, respectively. 
-   - The audio and visual features of videos in the MUSIC-AVQA dataset can be download from Baidu Drive (<b>password: cvpr</b>): 
-     - VGGish feature shape: [T, 128]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/1TWzuXVPncuGFIv37q5rtKg">Download</a> (112.7M)
-     - ResNet18 feature shape: [T, 512]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/1o-QSe0HJymeXAegVRA3bPw">Download</a>  (972.6M)
-     - R(2+1)D feature shape: [T, 512]&nbsp;&nbsp;<a href="https://pan.baidu.com/s/13Ml-Je3Mmu46OSuMfYc6vQ">Download</a>  (973.9M)
    
-   - The features are in the `./data/feats` folder.
-   - 14x14 features, too large to share ... but we can extract from raw video frames.
-
-   **Download videos frames**
-
-   - Raw videos: Availabel at Baidu Drive (<b>password: cvpr</b>):.
-     - <a href="https://pan.baidu.com/s/1yVPfOXyDesHdUZFHK3tYog">Real videos</a> (36.67GB)
-     - <a href="https://pan.baidu.com/s/1YPETsGnm0aJxmuRtJ2sGkg">Synthetic videos</a> (11.59GB)
-       
-     
-     <b>Note</b>: Please move all downloaded videos to a folder, for example, create a new folder named MUSIC-AVQA-Videos, which contains 9,288 real videos and synthetic videos.
-     
-   - Raw video frames (1fps): Available at <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (14.84GB) (<b>password: cvpr</b>).
-   
-   - Download raw videos in the MUSIC-AVQA dataset. The downloaded videos will be in the `/data/video` folder. 
-   
-   - `Pandas` and `ffmpeg` libraries are required.
 
 
 3. **Data pre-processing**
 
-   Extract audio waveforms from videos. The extracted audios will be in the `./data/audio` folder. `moviepy library` is used to read videos and extract audios.
+   **Extract audio waveforms from videos.** The extracted audios will be in the `./data/audio` folder. `moviepy library` is used to read videos and extract audios. (**Note:** If you are going to use the audio feature files provided by us, you can ignore this step.)
 
    ```python
    python feat_script/extract_audio_cues/extract_audio.py	
    ```
 
-   Extract video frames from videos. The extracted frames will be in the `data/frames` folder.
+   **Extract frames from videos.** The extracted frames will be in the `data/frames` folder. `Pandas` and `ffmpeg` libraries are required.
 
    ```python
    python feat_script/extract_visual_frames/extract_frames_adaptive_script.py
    ```
 
-4. **Feature extraction** 
+   We also provide the extracted frames (1fps), which can be downloaded directly from <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (14.84GB) (pwd: cvpr). But we thought it might be more convenient to execute the code above to extract video frames.
 
-   Audio feature. `TensorFlow1.4` and `VGGish pretrained on AudioSet` is required. Feature file also can be found from [here](https://pan.baidu.com/s/1TWzuXVPncuGFIv37q5rtKg) (<b>password: cvpr</b>). 
+
+
+
+3. **Feature extraction** 
+
+   **1). Audio feature.** `TensorFlow1.4` and `VGGish pretrained on AudioSet` is required. 
 
    ```python
    python feat_script/extract_audio_feat/audio_feature_extractor.py
    ```
 
-   2D visual feature. Pretrained models library is required.
+   Audio feature file also can be download from [Google Drive](https://drive.google.com/file/d/1n6mEKdjA5nqAHI89HDPoxNELRa8ayIuN/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/1TWzuXVPncuGFIv37q5rtKg) (pwd: cvpr). VGGish feature shape: [T, 128].
+
+   **2). 2D visual feature.** Pretrained models library is required. 
 
    ```python
    python feat_script/eatract_visual_feat/extract_rgb_feat.py
    ```
 
-   3D visual feature.
+   Features extracted using ResNet18 also can be downloaded from [Google Drive]()(coming soon!) or [Baidu Drive](https://pan.baidu.com/s/1o-QSe0HJymeXAegVRA3bPw) (972.6M). ResNet18 feature shape: [T, 512]
 
-   ```python
-   python feat_script/eatract_visual_feat/extract_3d_feat.py
-   ```
-
-   14x14 visual feature.
+   **3). 14x14 visual feature.**
 
    ```python
    python feat_script/extract_visual_feat_14x14/extract_14x14_feat.py
    ```
 
-5. **Baseline Model**
+   14x14 features, too large to share ... but we can extract from raw video frames.
+
+   **4). 3D visual feature.**
+
+   The experiments in this paper do not use 3D snippet-level features, but we have carried out some additional experiments to show that 3D snippet-level features can effectively improve the performance of the model. If you want to use 3D snippet-level features, you can generate the relevant feature file by executing the following code, which can also be downloaded from [Baidu Drive](https://pan.baidu.com/s/13Ml-Je3Mmu46OSuMfYc6vQ) (pwd: cvpr) (973.9M). R(2+1)D feature shape: [T, 512].
+
+   ```python
+   python feat_script/eatract_visual_feat/extract_3d_feat.py
+   ```
+
+   All the above feature files should be in `./data/feats` folder.
+
+   
+
+
+3. **Baseline Model**
 
    Training
 
@@ -155,9 +164,9 @@ numpy
    python net_grd_baseline/main_qa_grd_baseline.py --mode test
    ```
 
-6. **Our Audio-Visual Spatial-Temporal Model**
+4. **Our Audio-Visual Spatial-Temporal Model**
 
-   We provide trained models and you can quickly test the results. Test results may vary slightly on different machines.
+   We provide trained models (path: ./net_grd_avst/avst_models/) and you can quickly test the results. Test results may vary slightly on different machines.
 
    ```python
    python net_grd_avst/main_avst.py --mode train \
@@ -166,21 +175,21 @@ numpy
    ```
 
    Audio-Visual grounding generation
-   
+
    ```python
    python grounding_gen/main_grd_gen.py
    ```
 
    Training
-   
+
    ```python
    python net_grd_avst/main_avst.py --mode train \
    	--audio_dir = "path to your audio features"
    	--video_res14x14_dir = "path to your visual res14x14 features"
    ```
-   
+
    Testing
-   
+
    ```python
    python net_grd_avst/main_avst.py --mode test \
    	--audio_dir = "path to your audio features"
