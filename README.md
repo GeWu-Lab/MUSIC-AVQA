@@ -67,8 +67,6 @@ numpy
    https://github.com/GeWu-Lab/MUSIC-AVQA_CVPR2022.git
    ```
 
-   
-
 2. **Download data**
 
    **Raw videos**
@@ -127,7 +125,7 @@ numpy
    python feat_script/eatract_visual_feat/extract_rgb_feat.py
    ```
 
-   Features extracted using ResNet18 also can be downloaded from [Google Drive]()(coming soon!) or [Baidu Drive](https://pan.baidu.com/s/1o-QSe0HJymeXAegVRA3bPw) (972.6M). ResNet18 feature shape: [T, 512]
+   Features extracted using ResNet18 also can be downloaded from [Google Drive](https://drive.google.com/file/d/1mDZRvGMJIFyYytV_1ZLsolIFbAnoUxuC/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/1o-QSe0HJymeXAegVRA3bPw) (972.6M). ResNet18 feature shape: [T, 512]
 
    **3). 14x14 visual feature.**
 
