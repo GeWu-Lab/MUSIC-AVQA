@@ -80,13 +80,14 @@ numpy
      - [Synthetic videos](https://pan.baidu.com/s/1b7HQbMdcfaWjsHdWiLWO2Q#list/path=%2F) (11.59GB)
    
    - Note
-     - Please move all downloaded videos to a new folder, for example, create a new folder named MUSIC-AVQA-Videos, which contains 9,288 videos. eg., the downloaded videos will be in the `/data/video` folder. 
+   
+     Please move all downloaded videos to a new folder, for example, create a new folder named MUSIC-AVQA-Videos, which contains 9,288 videos. eg., the downloaded videos will be in the `/data/video` folder. 
    
    **Annotations (QA pairs, etc.)**
-   
+
    - Available for download at [here](https://github.com/GeWu-Lab/MUSIC-AVQA_CVPR2022/tree/main/data/json)
    - The annotation files are stored in JSON format. Each annotation file contains seven different keyword. And more detail see in [Project Homepage](https://gewu-lab.github.io/MUSIC-AVQA/)
-
+   
    
 
 
