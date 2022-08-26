@@ -69,8 +69,10 @@ numpy
 
 2. **Download data**
 
-   **Raw videos**
+   Note: More information can be found in the [DOWNLOAD](https://gewu-lab.github.io/MUSIC-AVQA/) Section of the project homepage
 
+   **Raw videos**
+   
    - [Google Drive](https://drive.google.com/drive/folders/1WAryZZE0srLIZG8VHl22uZ3tpbGHtsrQ?usp=sharing)
    
    - Baidu Drive (**password: cvpr**)
@@ -82,9 +84,9 @@ numpy
    - Note
    
      Please move all downloaded videos to a new folder, for example, create a new folder named MUSIC-AVQA-Videos, which contains 9,288 videos. eg., the downloaded videos will be in the `/data/video` folder. 
-   
-   **Annotations (QA pairs, etc.)**
 
+   **Annotations (QA pairs, etc.)**
+   
    - Available for download at [here](https://github.com/GeWu-Lab/MUSIC-AVQA_CVPR2022/tree/main/data/json)
    - The annotation files are stored in JSON format. Each annotation file contains seven different keyword. And more detail see in [Project Homepage](https://gewu-lab.github.io/MUSIC-AVQA/)
    
@@ -105,7 +107,7 @@ numpy
    python feat_script/extract_visual_frames/extract_frames_adaptive_script.py
    ```
 
-   We also provide the extracted frames (1fps), which can be downloaded directly from <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (14.84GB) (pwd: cvpr). But we thought it might be more convenient to execute the code above to extract video frames.
+   We also provide the extracted frames (1fps), which can be downloaded directly from <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (pwd: cvpr). But we thought it might be more convenient to execute the code above to extract video frames.
 
 
 
@@ -126,7 +128,7 @@ numpy
    python feat_script/eatract_visual_feat/extract_rgb_feat.py
    ```
 
-   Features extracted using ResNet18 also can be downloaded from [Google Drive](https://drive.google.com/file/d/1mDZRvGMJIFyYytV_1ZLsolIFbAnoUxuC/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/1o-QSe0HJymeXAegVRA3bPw) (972.6M). ResNet18 feature shape: [T, 512]
+   Features extracted using ResNet18 also can be downloaded from [Google Drive](https://drive.google.com/file/d/1mDZRvGMJIFyYytV_1ZLsolIFbAnoUxuC/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/1o-QSe0HJymeXAegVRA3bPw) (pwd: cvpr). ResNet18 feature shape: [T, 512]
 
    **3). 14x14 visual feature.**
 
