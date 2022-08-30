@@ -140,7 +140,7 @@ numpy
 
    **4). 3D visual feature.**
 
-   The experiments in this paper do not use 3D snippet-level features, but we have carried out some additional experiments to show that 3D snippet-level features can effectively improve the performance of the model. If you want to use 3D snippet-level features, you can generate the relevant feature file by executing the following code, which can also be downloaded from [Baidu Drive](https://pan.baidu.com/s/13Ml-Je3Mmu46OSuMfYc6vQ) (pwd: cvpr) (973.9M). R(2+1)D feature shape: [T, 512].
+   The experiments in this paper do not use 3D snippet-level features, but we have carried out some additional experiments to show that 3D snippet-level features can effectively improve the performance of the model. If you want to use 3D snippet-level features, you can generate the relevant feature file by executing the following code, which can also be downloaded from [Google Drive](https://drive.google.com/file/d/1q3benITu0dgL6HEx1c0MX-alcZNMdd5N/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/13Ml-Je3Mmu46OSuMfYc6vQ) (pwd: cvpr) (973.9M). R(2+1)D feature shape: [T, 512].
 
    ```python
    python feat_script/eatract_visual_feat/extract_3d_feat.py
