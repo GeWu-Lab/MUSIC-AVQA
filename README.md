@@ -98,16 +98,21 @@ numpy
    **Extract audio waveforms from videos.** The extracted audios will be in the `./data/audio` folder. `moviepy library` is used to read videos and extract audios. (**Note:** If you are going to use the audio feature files provided by us, you can ignore this step.)
 
    ```python
+   cd ./feat_script
    python feat_script/extract_audio_cues/extract_audio.py	
    ```
-
+   
    **Extract frames from videos.** The extracted frames will be in the `data/frames` folder. `Pandas` and `ffmpeg` libraries are required.
-
+   
    ```python
-   python feat_script/extract_visual_frames/extract_frames_adaptive_script.py
+   cd ./feat_script
+   python extract_visual_frames/extract_frames_adaptive_script.py
+   
+   # or we can excute following statement to extract frames
+   python extract_visual_frames/extract_frames.py
    ```
-
-   We also provide the extracted frames (1fps), which can be downloaded directly from <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (pwd: cvpr). But we thought it might be more convenient to execute the code above to extract video frames.
+   
+   We also provide the extracted frames (1fps), which can be downloaded directly from <a href="https://pan.baidu.com/s/1c9gvJrf6oGXqHVtNiuOlZQ">Baidu Drive</a> (pwd: cvpr). But we thought it might be more convenient to execute the code above to extract video frames. Also, We should pay attention to whether the *path* in the code is correct.
 
 
 

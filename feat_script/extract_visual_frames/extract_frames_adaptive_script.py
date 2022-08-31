@@ -4,7 +4,7 @@
 Function: Extract video frames.
 '''
 
-from video2frames import video_processing
+from extract_visual_frames/extract_frames_adaptive import video_processing
 
 if __name__ == "__main__":
 

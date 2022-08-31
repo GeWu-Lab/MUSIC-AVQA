@@ -14,7 +14,7 @@ from torch import nn
 import torch.nn.functional as F
 import pretrainedmodels
 from pretrainedmodels import utils
-from extract_visual_feat.nets_14x14_feat import AVQA_Fusion_Net
+from extract_visual_feat_14x14.nets_14x14_feat import AVQA_Fusion_Net
 from torchvision import transforms
 
 

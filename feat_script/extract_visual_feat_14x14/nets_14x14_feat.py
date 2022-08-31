@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 import numpy as np
-from extract_visual_feat.visual_net_14x14 import resnet18
+from extract_visual_feat_14x14.visual_net_14x14 import resnet18
 
 # Question
 class QstEncoder(nn.Module):
