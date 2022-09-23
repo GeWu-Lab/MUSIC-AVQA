@@ -54,8 +54,9 @@ for n in range(len_data):
 
     '''feature learning by VGG-net trained by audioset'''
     audio_index = os.path.join(audio_dir, lis[n]) # path of your audio files
-    num_secs = get_audio_len(audio_index)
-    print("\nProcessing: ", i, " / ", len_data, " --------> video: ", lis[n], " ---> sec: ", num_secs)
+    num_secs = 60
+    num_secs_real = get_audio_len(audio_index)
+    print("\nProcessing: ", i, " / ", len_data, " --------> video: ", lis[n], " ---> sec: ", num_secs_real)
 
     input_batch = vggish_input.wavfile_to_examples(audio_index, num_secs)
     np.testing.assert_equal(
